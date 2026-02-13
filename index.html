@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>s1.ie — Practice Exams</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="topin">
+      <a class="brand" href="#/practice" aria-label="s1.ie home">
+        <span class="brandMark" aria-hidden="true">
+          <span class="book">
+            <span class="page p1"></span>
+            <span class="page p2"></span>
+            <span class="page p3"></span>
+          </span>
+        </span>
+        <span class="brandText">
+          <strong>s1.ie</strong>
+          <span class="muted">Practice exams</span>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <div class="menu">
+          <button class="btn" id="certBtn" type="button" aria-haspopup="true" aria-expanded="false">
+            Certifications <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="panel" id="certPanel" role="menu" aria-label="Certifications"></div>
+        </div>
+
+        <button class="btn themeBtn" id="themeToggle" type="button" title="Toggle theme">
+          <span class="themeIcon" aria-hidden="true">🌙</span>
+          <span class="themeLabel">Dark</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="app"></main>
+
+  <footer class="siteFooter">
+    <div class="footIn">
+      <div>
+        <div class="footBrand"><strong>s1.ie</strong> <span class="muted">• Local exam practice</span></div>
+        <div class="muted small">
+          Runs locally via <code>python3 -m http.server</code>. No tracking. No accounts.
+        </div>
+      </div>
+
+      <div>
+        <div class="footHd">Product</div>
+        <a class="footLink" href="#/practice">Practice exams</a>
+        <a class="footLink" href="#/practice/kcna">KCNA</a>
+        <a class="footLink" href="#/practice/aws-clf-c02">AWS CLF-C02</a>
+      </div>
+
+      <div>
+        <div class="footHd">Tips</div>
+        <div class="muted small">
+          Use bookmarks to mark uncertain questions, then filter in review.
+          Aim for accuracy first, then speed.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

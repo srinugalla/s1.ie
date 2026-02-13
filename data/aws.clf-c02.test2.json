@@ -1,0 +1,946 @@
+{
+  "id": "aws-clf-c02-2",
+  "title": "CLF-C02 Test 2 (60 Questions)",
+  "questions": [
+    {
+      "id": "aws-clf-c02-2-001",
+      "prompt": "Which AWS service is primarily used for DNS and domain management?",
+      "choices": ["Amazon Route 53", "Amazon CloudFront", "AWS Shield", "Amazon API Gateway"],
+      "answerIndex": 0,
+      "explanation": "Route 53 is AWS DNS and domain service.",
+      "choiceExplanations": [
+        "Correct. DNS/domain management.",
+        "Incorrect. CDN service.",
+        "Incorrect. DDoS protection.",
+        "Incorrect. API management."
+      ],
+      "references": ["Amazon Route 53"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-002",
+      "prompt": "Which AWS service provides an easy way to create a virtual private cloud with subnets and security controls?",
+      "choices": ["Amazon VPC", "Amazon S3", "AWS Budgets", "Amazon CloudFront"],
+      "answerIndex": 0,
+      "explanation": "VPC is AWS virtual networking.",
+      "choiceExplanations": [
+        "Correct. VPC provides isolated networking.",
+        "Incorrect. S3 is storage.",
+        "Incorrect. Budgets is cost tracking.",
+        "Incorrect. CloudFront is CDN."
+      ],
+      "references": ["Amazon VPC"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-003",
+      "prompt": "Which AWS service is best for storing frequently accessed objects with low latency globally via edge caching?",
+      "choices": ["Amazon CloudFront", "Amazon EBS", "Amazon EFS", "AWS Direct Connect"],
+      "answerIndex": 0,
+      "explanation": "CloudFront caches content at edge locations to reduce latency.",
+      "choiceExplanations": [
+        "Correct. CDN edge caching.",
+        "Incorrect. EBS is block storage.",
+        "Incorrect. EFS is file storage.",
+        "Incorrect. Direct Connect is connectivity."
+      ],
+      "references": ["Amazon CloudFront"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-004",
+      "prompt": "Which service records AWS API calls for auditing?",
+      "choices": ["AWS CloudTrail", "Amazon CloudWatch", "AWS Config", "AWS Trusted Advisor"],
+      "answerIndex": 0,
+      "explanation": "CloudTrail records API activity/events.",
+      "choiceExplanations": [
+        "Correct. Audit trail of API calls.",
+        "Incorrect. Monitoring/metrics/logs.",
+        "Incorrect. Configuration compliance history.",
+        "Incorrect. Recommendations service."
+      ],
+      "references": ["AWS CloudTrail"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-005",
+      "prompt": "Which AWS service provides metrics, logs, dashboards, and alarms?",
+      "choices": ["Amazon CloudWatch", "AWS CloudTrail", "AWS Artifact", "AWS KMS"],
+      "answerIndex": 0,
+      "explanation": "CloudWatch is AWS monitoring/observability.",
+      "choiceExplanations": [
+        "Correct. Monitoring and log collection/alarms.",
+        "Incorrect. CloudTrail is auditing.",
+        "Incorrect. Artifact is compliance docs.",
+        "Incorrect. KMS is key management."
+      ],
+      "references": ["Amazon CloudWatch"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-006",
+      "prompt": "Which service tracks resource configuration changes and can evaluate them for compliance?",
+      "choices": ["AWS Config", "AWS Budgets", "Amazon SQS", "AWS WAF"],
+      "answerIndex": 0,
+      "explanation": "AWS Config tracks configuration and evaluates rules.",
+      "choiceExplanations": [
+        "Correct. Config history + compliance rules.",
+        "Incorrect. Budgets is cost alerts.",
+        "Incorrect. SQS is messaging.",
+        "Incorrect. WAF is web firewall."
+      ],
+      "references": ["AWS Config"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-007",
+      "prompt": "Which AWS service provides a managed message queue for decoupling systems?",
+      "choices": ["Amazon SQS", "Amazon SNS", "AWS Step Functions", "Amazon DynamoDB"],
+      "answerIndex": 0,
+      "explanation": "SQS is a managed message queue.",
+      "choiceExplanations": [
+        "Correct. Queue-based decoupling.",
+        "Incorrect. SNS is pub/sub notifications.",
+        "Incorrect. Orchestration service.",
+        "Incorrect. Database service."
+      ],
+      "references": ["Amazon SQS"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-008",
+      "prompt": "Which AWS service provides pub/sub notifications and fan-out to multiple subscribers?",
+      "choices": ["Amazon SNS", "Amazon SQS", "Amazon RDS", "Amazon EBS"],
+      "answerIndex": 0,
+      "explanation": "SNS is publish/subscribe messaging.",
+      "choiceExplanations": [
+        "Correct. Pub/sub fan-out.",
+        "Incorrect. Queue (point-to-point).",
+        "Incorrect. Database.",
+        "Incorrect. Storage."
+      ],
+      "references": ["Amazon SNS"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-009",
+      "prompt": "Which AWS service provides managed NoSQL with single-digit millisecond latency?",
+      "choices": ["Amazon DynamoDB", "Amazon RDS", "Amazon Aurora", "Amazon Redshift"],
+      "answerIndex": 0,
+      "explanation": "DynamoDB is managed NoSQL.",
+      "choiceExplanations": [
+        "Correct. Managed NoSQL.",
+        "Incorrect. Relational DB service.",
+        "Incorrect. Relational engine.",
+        "Incorrect. Data warehouse."
+      ],
+      "references": ["Amazon DynamoDB"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-010",
+      "prompt": "Which AWS service is a managed relational database option?",
+      "choices": ["Amazon RDS", "Amazon DynamoDB", "Amazon S3", "Amazon ElastiCache"],
+      "answerIndex": 0,
+      "explanation": "RDS is managed relational databases.",
+      "choiceExplanations": [
+        "Correct. Managed relational DBs.",
+        "Incorrect. NoSQL DB.",
+        "Incorrect. Object storage.",
+        "Incorrect. Cache service."
+      ],
+      "references": ["Amazon RDS"],
+      "image": null
+    },
+
+    {
+      "id": "aws-clf-c02-2-011",
+      "prompt": "Which AWS compute option is best described as 'run code without provisioning servers'?",
+      "choices": ["AWS Lambda", "Amazon EC2", "Amazon EBS", "Amazon Route 53"],
+      "answerIndex": 0,
+      "explanation": "Lambda is serverless functions.",
+      "choiceExplanations": [
+        "Correct. Serverless compute.",
+        "Incorrect. VM instances.",
+        "Incorrect. Storage.",
+        "Incorrect. DNS."
+      ],
+      "references": ["AWS Lambda"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-012",
+      "prompt": "Which AWS service provides container orchestration without managing Kubernetes (AWS-native orchestration)?",
+      "choices": ["Amazon ECS", "Amazon EKS", "AWS Lambda", "Amazon Route 53"],
+      "answerIndex": 0,
+      "explanation": "ECS is AWS-native container orchestration.",
+      "choiceExplanations": [
+        "Correct. ECS manages containers without Kubernetes.",
+        "Incorrect. EKS is Kubernetes.",
+        "Incorrect. Lambda is functions.",
+        "Incorrect. Route 53 is DNS."
+      ],
+      "references": ["Amazon ECS"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-013",
+      "prompt": "Which AWS service lets you run containers without managing servers for ECS/EKS?",
+      "choices": ["AWS Fargate", "Amazon EC2", "Amazon EFS", "AWS Direct Connect"],
+      "answerIndex": 0,
+      "explanation": "Fargate is serverless container compute.",
+      "choiceExplanations": [
+        "Correct. No server management for containers.",
+        "Incorrect. Requires managing instances.",
+        "Incorrect. File storage.",
+        "Incorrect. Connectivity service."
+      ],
+      "references": ["AWS Fargate"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-014",
+      "prompt": "Which AWS service is primarily used to manage users, groups, roles, and policies?",
+      "choices": ["AWS IAM", "AWS KMS", "AWS WAF", "AWS Budgets"],
+      "answerIndex": 0,
+      "explanation": "IAM is identity and access management.",
+      "choiceExplanations": [
+        "Correct. IAM controls permissions.",
+        "Incorrect. KMS manages encryption keys.",
+        "Incorrect. WAF is web firewall.",
+        "Incorrect. Budgets is cost management."
+      ],
+      "references": ["AWS IAM"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-015",
+      "prompt": "Which service provides DDoS protection for AWS applications?",
+      "choices": ["AWS Shield", "AWS KMS", "AWS CloudTrail", "AWS Config"],
+      "answerIndex": 0,
+      "explanation": "Shield provides DDoS protection.",
+      "choiceExplanations": [
+        "Correct. DDoS protection.",
+        "Incorrect. Key management.",
+        "Incorrect. Audit logs.",
+        "Incorrect. Config tracking."
+      ],
+      "references": ["AWS Shield"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-016",
+      "prompt": "Which service is used to filter malicious web requests (SQLi/XSS) at L7?",
+      "choices": ["AWS WAF", "AWS Shield", "AWS IAM", "AWS Artifact"],
+      "answerIndex": 0,
+      "explanation": "WAF filters web traffic using rules.",
+      "choiceExplanations": [
+        "Correct. Web application firewall.",
+        "Incorrect. DDoS protection.",
+        "Incorrect. Identity/permissions.",
+        "Incorrect. Compliance docs."
+      ],
+      "references": ["AWS WAF"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-017",
+      "prompt": "Which service manages encryption keys integrated with AWS services for encryption-at-rest?",
+      "choices": ["AWS KMS", "AWS Budgets", "Amazon Route 53", "Amazon CloudFront"],
+      "answerIndex": 0,
+      "explanation": "KMS manages cryptographic keys.",
+      "choiceExplanations": [
+        "Correct. Managed key service.",
+        "Incorrect. Cost alerts.",
+        "Incorrect. DNS.",
+        "Incorrect. CDN."
+      ],
+      "references": ["AWS KMS"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-018",
+      "prompt": "Which service provides dedicated hardware security modules (HSMs) you control?",
+      "choices": ["AWS CloudHSM", "AWS KMS", "AWS WAF", "Amazon Macie"],
+      "answerIndex": 0,
+      "explanation": "CloudHSM provides dedicated HSM appliances.",
+      "choiceExplanations": [
+        "Correct. Dedicated HSMs.",
+        "Incorrect. KMS is managed keys (not dedicated HSM per customer by default).",
+        "Incorrect. Web firewall.",
+        "Incorrect. S3 data classification."
+      ],
+      "references": ["AWS CloudHSM"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-019",
+      "prompt": "Which is the BEST practice when granting permissions in AWS?",
+      "choices": [
+        "Use broad wildcards to avoid access issues",
+        "Grant least privilege and review permissions regularly",
+        "Share a single IAM user across teams",
+        "Disable logging to reduce storage cost"
+      ],
+      "answerIndex": 1,
+      "explanation": "Least privilege reduces risk and blast radius.",
+      "choiceExplanations": [
+        "Incorrect. Wildcards increase risk.",
+        "Correct. Least privilege + review is best practice.",
+        "Incorrect. Shared accounts reduce accountability.",
+        "Incorrect. Logging is critical for auditing."
+      ],
+      "references": ["IAM best practices"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-020",
+      "prompt": "Which service detects threats by analyzing logs like CloudTrail and VPC Flow Logs?",
+      "choices": ["Amazon GuardDuty", "Amazon Inspector", "AWS Budgets", "AWS Direct Connect"],
+      "answerIndex": 0,
+      "explanation": "GuardDuty is managed threat detection.",
+      "choiceExplanations": [
+        "Correct. Threat detection service.",
+        "Incorrect. Vulnerability management.",
+        "Incorrect. Cost management.",
+        "Incorrect. Connectivity."
+      ],
+      "references": ["Amazon GuardDuty"],
+      "image": null
+    },
+
+    {
+      "id": "aws-clf-c02-2-021",
+      "prompt": "Which service discovers and classifies sensitive S3 data such as PII?",
+      "choices": ["Amazon Macie", "Amazon GuardDuty", "AWS CloudTrail", "AWS Config"],
+      "answerIndex": 0,
+      "explanation": "Macie scans S3 for sensitive data.",
+      "choiceExplanations": [
+        "Correct. S3 data classification.",
+        "Incorrect. Threat detection.",
+        "Incorrect. Audit logs.",
+        "Incorrect. Config compliance."
+      ],
+      "references": ["Amazon Macie"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-022",
+      "prompt": "Which AWS service provides best-practice recommendations for cost and security optimizations?",
+      "choices": ["AWS Trusted Advisor", "AWS CloudTrail", "Amazon SQS", "Amazon EBS"],
+      "answerIndex": 0,
+      "explanation": "Trusted Advisor provides best-practice checks and recommendations.",
+      "choiceExplanations": [
+        "Correct. Recommendations service.",
+        "Incorrect. Audit logs.",
+        "Incorrect. Messaging queue.",
+        "Incorrect. Block storage."
+      ],
+      "references": ["AWS Trusted Advisor"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-023",
+      "prompt": "Which service provides consolidated billing and governance for multiple AWS accounts?",
+      "choices": ["AWS Organizations", "AWS IAM", "AWS CloudWatch", "AWS WAF"],
+      "answerIndex": 0,
+      "explanation": "Organizations manages multiple accounts centrally.",
+      "choiceExplanations": [
+        "Correct. Multi-account management.",
+        "Incorrect. Identity in an account.",
+        "Incorrect. Monitoring.",
+        "Incorrect. Web firewall."
+      ],
+      "references": ["AWS Organizations"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-024",
+      "prompt": "Which tool provides the most detailed cost and usage dataset for an AWS account?",
+      "choices": ["AWS Cost and Usage Report (CUR)", "AWS Budgets", "AWS WAF", "AWS KMS"],
+      "answerIndex": 0,
+      "explanation": "CUR provides detailed cost/usage line items.",
+      "choiceExplanations": [
+        "Correct. Most detailed billing dataset.",
+        "Incorrect. Budgets is alerts/thresholds.",
+        "Incorrect. Web firewall.",
+        "Incorrect. Key management."
+      ],
+      "references": ["AWS CUR"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-025",
+      "prompt": "Which tool is commonly used to set alerts when forecasted monthly costs exceed a threshold?",
+      "choices": ["AWS Budgets", "AWS CloudTrail", "Amazon GuardDuty", "AWS Config"],
+      "answerIndex": 0,
+      "explanation": "Budgets supports actual and forecast alerts.",
+      "choiceExplanations": [
+        "Correct. Cost/usage budgets and alerts.",
+        "Incorrect. Audit logging.",
+        "Incorrect. Threat detection.",
+        "Incorrect. Config compliance."
+      ],
+      "references": ["AWS Budgets"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-026",
+      "prompt": "Which option best describes 'CapEx to OpEx' as a cloud benefit?",
+      "choices": [
+        "Buying hardware upfront instead of paying monthly",
+        "Shifting from upfront capital purchases to pay-as-you-go operational spending",
+        "Eliminating all costs entirely",
+        "Paying only fixed yearly licensing"
+      ],
+      "answerIndex": 1,
+      "explanation": "Cloud shifts spending from upfront purchases to usage-based operating expense.",
+      "choiceExplanations": [
+        "Incorrect. That describes CapEx.",
+        "Correct. Cloud reduces upfront CapEx and increases OpEx flexibility.",
+        "Incorrect. Costs still exist.",
+        "Incorrect. Cloud is usually usage-based."
+      ],
+      "references": ["Cloud economics"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-027",
+      "prompt": "Which is typically the MOST cost-effective EC2 pricing for steady-state workloads with a 1-year commitment?",
+      "choices": ["On-Demand", "Spot", "Reserved Instances or Savings Plans", "Dedicated Hosts"],
+      "answerIndex": 2,
+      "explanation": "Commitment-based discounts (Savings Plans/RIs) fit steady usage.",
+      "choiceExplanations": [
+        "Incorrect. Flexible but usually more expensive for steady usage.",
+        "Incorrect. Spot is not guaranteed and can interrupt.",
+        "Correct. Commitment discounts reduce cost.",
+        "Incorrect. Dedicated Hosts are for compliance/licensing, not cost savings."
+      ],
+      "references": ["Savings Plans", "Reserved Instances"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-028",
+      "prompt": "Which EC2 pricing model uses unused AWS capacity and can be interrupted?",
+      "choices": ["Spot Instances", "On-Demand", "Reserved Instances", "Dedicated Instances"],
+      "answerIndex": 0,
+      "explanation": "Spot offers deep discounts with interruption risk.",
+      "choiceExplanations": [
+        "Correct. Interruptible spare capacity.",
+        "Incorrect. On-Demand is not interruptible by pricing model.",
+        "Incorrect. Reserved is commitment-based.",
+        "Incorrect. Dedicated Instances are tenancy-related."
+      ],
+      "references": ["EC2 Spot"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-029",
+      "prompt": "Which AWS service provides compliance reports and agreements (SOC reports, etc.)?",
+      "choices": ["AWS Artifact", "AWS CloudTrail", "AWS Config", "Amazon Inspector"],
+      "answerIndex": 0,
+      "explanation": "Artifact is the compliance documentation portal.",
+      "choiceExplanations": [
+        "Correct. Compliance documents and agreements.",
+        "Incorrect. Audit logging.",
+        "Incorrect. Config compliance evaluation.",
+        "Incorrect. Vulnerability scanning."
+      ],
+      "references": ["AWS Artifact"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-030",
+      "prompt": "Which service provides object storage for backups, logs, and static assets?",
+      "choices": ["Amazon S3", "Amazon EBS", "Amazon EFS", "Amazon RDS"],
+      "answerIndex": 0,
+      "explanation": "S3 is AWS object storage.",
+      "choiceExplanations": [
+        "Correct. Object storage.",
+        "Incorrect. Block storage.",
+        "Incorrect. File storage.",
+        "Incorrect. Database."
+      ],
+      "references": ["Amazon S3"],
+      "image": null
+    },
+
+    {
+      "id": "aws-clf-c02-2-031",
+      "prompt": "Which S3 storage class is typically used for long-term archival with infrequent access and lower cost?",
+      "choices": ["S3 Standard", "S3 Standard-IA", "S3 Glacier / Glacier Deep Archive", "S3 Intelligent-Tiering only"],
+      "answerIndex": 2,
+      "explanation": "Glacier classes are designed for archival use cases with different retrieval characteristics.",
+      "choiceExplanations": [
+        "Incorrect. Standard is frequent access.",
+        "Incorrect. Standard-IA is infrequent access but not the deepest archive tier.",
+        "Correct. Glacier tiers are archival.",
+        "Incorrect. Intelligent-Tiering is for unknown access patterns, not strictly archival."
+      ],
+      "references": ["S3 storage classes"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-032",
+      "prompt": "Which AWS service is Infrastructure as Code using templates to provision resources?",
+      "choices": ["AWS CloudFormation", "Amazon CloudWatch", "AWS CloudTrail", "AWS IAM"],
+      "answerIndex": 0,
+      "explanation": "CloudFormation provisions resources from templates.",
+      "choiceExplanations": [
+        "Correct. IaC templates.",
+        "Incorrect. Monitoring service.",
+        "Incorrect. Audit logs.",
+        "Incorrect. Identity service."
+      ],
+      "references": ["AWS CloudFormation"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-033",
+      "prompt": "Which service provides a managed API front door (auth, throttling, caching) for REST/HTTP APIs?",
+      "choices": ["Amazon API Gateway", "Amazon SQS", "Amazon EFS", "AWS Budgets"],
+      "answerIndex": 0,
+      "explanation": "API Gateway provides managed API capabilities.",
+      "choiceExplanations": [
+        "Correct. Managed API service.",
+        "Incorrect. Queue service.",
+        "Incorrect. File storage.",
+        "Incorrect. Cost tool."
+      ],
+      "references": ["Amazon API Gateway"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-034",
+      "prompt": "Which AWS service provides a global edge network for low-latency delivery of content?",
+      "choices": ["Amazon CloudFront", "Amazon VPC", "Amazon RDS", "AWS IAM"],
+      "answerIndex": 0,
+      "explanation": "CloudFront uses edge locations globally.",
+      "choiceExplanations": [
+        "Correct. CDN with edge locations.",
+        "Incorrect. VPC is networking in a Region.",
+        "Incorrect. Database service.",
+        "Incorrect. Identity service."
+      ],
+      "references": ["Amazon CloudFront"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-035",
+      "prompt": "Which service provides event routing between AWS services and applications?",
+      "choices": ["Amazon EventBridge", "Amazon EBS", "Amazon RDS", "AWS Artifact"],
+      "answerIndex": 0,
+      "explanation": "EventBridge is an event bus and routing service.",
+      "choiceExplanations": [
+        "Correct. Event routing/bus.",
+        "Incorrect. Storage.",
+        "Incorrect. Database.",
+        "Incorrect. Compliance docs."
+      ],
+      "references": ["Amazon EventBridge"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-036",
+      "prompt": "Which service provides managed workflows/orchestration across AWS services?",
+      "choices": ["AWS Step Functions", "Amazon SQS", "Amazon SNS", "AWS WAF"],
+      "answerIndex": 0,
+      "explanation": "Step Functions orchestrates workflows and state machines.",
+      "choiceExplanations": [
+        "Correct. Orchestration service.",
+        "Incorrect. Queue.",
+        "Incorrect. Pub/sub notifications.",
+        "Incorrect. Web firewall."
+      ],
+      "references": ["AWS Step Functions"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-037",
+      "prompt": "Which service provides centralized SSO for workforce access to AWS accounts?",
+      "choices": ["AWS IAM Identity Center", "AWS KMS", "Amazon S3", "Amazon EBS"],
+      "answerIndex": 0,
+      "explanation": "IAM Identity Center provides SSO and centralized permission sets.",
+      "choiceExplanations": [
+        "Correct. AWS SSO/Identity Center.",
+        "Incorrect. Key management.",
+        "Incorrect. Storage.",
+        "Incorrect. Storage."
+      ],
+      "references": ["IAM Identity Center"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-038",
+      "prompt": "Which statement about IAM policies is most accurate?",
+      "choices": [
+        "Policies define who (principal) can do what actions on which resources, usually with conditions",
+        "Policies are only used for DNS settings",
+        "Policies are used only for billing forecasts",
+        "Policies are only applied to S3 and no other services"
+      ],
+      "answerIndex": 0,
+      "explanation": "IAM policies define permissions (actions/resources/conditions) for principals.",
+      "choiceExplanations": [
+        "Correct. This is the core permission model.",
+        "Incorrect. DNS is Route 53.",
+        "Incorrect. Billing is Cost tools.",
+        "Incorrect. Policies apply across AWS services."
+      ],
+      "references": ["IAM policies"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-039",
+      "prompt": "Which network control is stateful and attached to an ENI/instance?",
+      "choices": ["Security Group", "Network ACL", "Route Table", "Internet Gateway"],
+      "answerIndex": 0,
+      "explanation": "Security Groups are stateful instance/ENI firewalls.",
+      "choiceExplanations": [
+        "Correct. Stateful firewall at ENI/instance.",
+        "Incorrect. NACL is stateless at subnet.",
+        "Incorrect. Route tables control routing.",
+        "Incorrect. IGW provides internet connectivity."
+      ],
+      "references": ["Security Groups", "NACLs"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-040",
+      "prompt": "Which AWS service provides secure storage and rotation for secrets like database credentials?",
+      "choices": ["AWS Secrets Manager", "AWS Config", "Amazon CloudFront", "AWS Budgets"],
+      "answerIndex": 0,
+      "explanation": "Secrets Manager stores and rotates secrets.",
+      "choiceExplanations": [
+        "Correct. Managed secrets and rotation.",
+        "Incorrect. Config compliance.",
+        "Incorrect. CDN.",
+        "Incorrect. Cost tool."
+      ],
+      "references": ["AWS Secrets Manager"],
+      "image": null
+    },
+
+    {
+      "id": "aws-clf-c02-2-041",
+      "prompt": "Which service provides a parameter store for configuration values used by applications?",
+      "choices": ["AWS Systems Manager Parameter Store", "AWS WAF", "Amazon Route 53", "Amazon Redshift"],
+      "answerIndex": 0,
+      "explanation": "Parameter Store stores config and secrets parameters (with features by tier).",
+      "choiceExplanations": [
+        "Correct. Config/parameters store.",
+        "Incorrect. Web firewall.",
+        "Incorrect. DNS.",
+        "Incorrect. Data warehouse."
+      ],
+      "references": ["SSM Parameter Store"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-042",
+      "prompt": "Which AWS service provides offline data transfer appliances for migrating large datasets?",
+      "choices": ["AWS Snowball", "Amazon CloudFront", "Amazon VPC", "AWS KMS"],
+      "answerIndex": 0,
+      "explanation": "Snowball is a physical appliance for data transfer.",
+      "choiceExplanations": [
+        "Correct. Offline migration appliances.",
+        "Incorrect. CDN.",
+        "Incorrect. Networking.",
+        "Incorrect. Key management."
+      ],
+      "references": ["AWS Snowball"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-043",
+      "prompt": "Which AWS service provides managed data warehousing?",
+      "choices": ["Amazon Redshift", "Amazon DynamoDB", "Amazon EFS", "AWS WAF"],
+      "answerIndex": 0,
+      "explanation": "Redshift is data warehouse.",
+      "choiceExplanations": [
+        "Correct. Data warehouse.",
+        "Incorrect. NoSQL DB.",
+        "Incorrect. File storage.",
+        "Incorrect. Web firewall."
+      ],
+      "references": ["Amazon Redshift"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-044",
+      "prompt": "Which AWS service provides a managed email service for sending transactional/marketing emails?",
+      "choices": ["Amazon SES", "Amazon SQS", "Amazon EBS", "AWS Config"],
+      "answerIndex": 0,
+      "explanation": "SES is Simple Email Service.",
+      "choiceExplanations": [
+        "Correct. Managed email sending.",
+        "Incorrect. Queue.",
+        "Incorrect. Storage.",
+        "Incorrect. Config compliance."
+      ],
+      "references": ["Amazon SES"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-045",
+      "prompt": "Which concept best describes distributing resources and designing for failure across AZs?",
+      "choices": ["High availability", "Single point of failure", "Vertical scaling only", "Manual patching"],
+      "answerIndex": 0,
+      "explanation": "High availability uses redundancy and fault isolation.",
+      "choiceExplanations": [
+        "Correct. Redundancy across AZs improves availability.",
+        "Incorrect. SPOF is what you avoid.",
+        "Incorrect. Vertical scaling alone doesn't provide HA.",
+        "Incorrect. Not an HA concept."
+      ],
+      "references": ["HA concepts"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-046",
+      "prompt": "Which cloud benefit allows you to quickly provision resources and experiment without long procurement cycles?",
+      "choices": ["Agility", "Fixed capacity", "Upfront hardware purchase", "Manual scaling only"],
+      "answerIndex": 0,
+      "explanation": "Agility is rapid provisioning and iteration.",
+      "choiceExplanations": [
+        "Correct. Faster experimentation and provisioning.",
+        "Incorrect. Cloud supports elasticity, not fixed capacity.",
+        "Incorrect. Cloud reduces upfront procurement.",
+        "Incorrect. Automation is common."
+      ],
+      "references": ["Cloud benefits"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-047",
+      "prompt": "Which statement best describes 'scalability'?",
+      "choices": [
+        "The ability to increase capacity to meet demand",
+        "The ability to permanently prevent outages",
+        "The ability to store only relational data",
+        "The ability to avoid monitoring"
+      ],
+      "answerIndex": 0,
+      "explanation": "Scalability is increasing capacity to meet demand (vertically/horizontally).",
+      "choiceExplanations": [
+        "Correct. Scaling capacity as needed.",
+        "Incorrect. Outages can still happen.",
+        "Incorrect. Data model not related.",
+        "Incorrect. Monitoring remains important."
+      ],
+      "references": ["Scalability concepts"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-048",
+      "prompt": "Which AWS service provides managed Kubernetes?",
+      "choices": ["Amazon EKS", "Amazon ECS", "AWS Lambda", "Amazon S3"],
+      "answerIndex": 0,
+      "explanation": "EKS is managed Kubernetes control plane.",
+      "choiceExplanations": [
+        "Correct. Managed Kubernetes.",
+        "Incorrect. ECS is AWS native containers.",
+        "Incorrect. Functions.",
+        "Incorrect. Storage."
+      ],
+      "references": ["Amazon EKS"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-049",
+      "prompt": "Which is typically an advantage of AWS managed services?",
+      "choices": [
+        "You manage all infrastructure hardware",
+        "Reduced undifferentiated heavy lifting (patching, backups, scaling options)",
+        "You must buy servers upfront",
+        "No shared responsibility for security"
+      ],
+      "answerIndex": 1,
+      "explanation": "Managed services reduce operational overhead for common tasks.",
+      "choiceExplanations": [
+        "Incorrect. AWS manages much of the underlying hardware.",
+        "Correct. Managed services reduce operational work.",
+        "Incorrect. Cloud reduces upfront CapEx.",
+        "Incorrect. Shared responsibility still applies."
+      ],
+      "references": ["Managed services concepts"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-050",
+      "prompt": "Which AWS feature provides 'pay only for what you use' most directly?",
+      "choices": ["On-Demand usage-based pricing", "Buying dedicated hardware", "Fixed 5-year contract only", "Manual billing calculations"],
+      "answerIndex": 0,
+      "explanation": "Usage-based On-Demand pricing aligns cost to consumption.",
+      "choiceExplanations": [
+        "Correct. Usage-based billing.",
+        "Incorrect. Hardware is CapEx.",
+        "Incorrect. Cloud supports flexible models.",
+        "Incorrect. Billing is automated by AWS."
+      ],
+      "references": ["AWS pricing"],
+      "image": null
+    },
+
+    {
+      "id": "aws-clf-c02-2-051",
+      "prompt": "Which service helps you centrally manage patches, automation, and operational tasks across fleets (common AWS ops concept)?",
+      "choices": ["AWS Systems Manager", "Amazon Route 53", "Amazon CloudFront", "AWS WAF"],
+      "answerIndex": 0,
+      "explanation": "Systems Manager provides operational management tools (patching, run commands, inventory).",
+      "choiceExplanations": [
+        "Correct. Ops management platform.",
+        "Incorrect. DNS.",
+        "Incorrect. CDN.",
+        "Incorrect. Web firewall."
+      ],
+      "references": ["AWS Systems Manager"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-052",
+      "prompt": "Which AWS service can help you build a private connection to AWS that bypasses the public internet?",
+      "choices": ["AWS Direct Connect", "Amazon CloudFront", "AWS Budgets", "Amazon SQS"],
+      "answerIndex": 0,
+      "explanation": "Direct Connect provides private connectivity.",
+      "choiceExplanations": [
+        "Correct. Private dedicated connectivity.",
+        "Incorrect. CDN.",
+        "Incorrect. Cost tool.",
+        "Incorrect. Messaging."
+      ],
+      "references": ["AWS Direct Connect"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-053",
+      "prompt": "Which statement best describes S3 versioning?",
+      "choices": [
+        "It permanently deletes older versions automatically",
+        "It keeps multiple versions of an object to protect against overwrites/deletes",
+        "It encrypts all objects with a customer-managed key by default",
+        "It is used only for static website hosting"
+      ],
+      "answerIndex": 1,
+      "explanation": "Versioning helps protect against accidental overwrite/deletion by retaining versions.",
+      "choiceExplanations": [
+        "Incorrect. Versioning retains versions; lifecycle rules can expire them.",
+        "Correct. Multiple versions retained.",
+        "Incorrect. Encryption is separate configuration.",
+        "Incorrect. Versioning is general purpose."
+      ],
+      "references": ["S3 Versioning"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-054",
+      "prompt": "Which AWS tool provides a way to estimate AWS costs for planned usage (common CLF concept)?",
+      "choices": ["AWS Pricing Calculator", "AWS CloudTrail", "Amazon GuardDuty", "AWS WAF"],
+      "answerIndex": 0,
+      "explanation": "Pricing Calculator helps estimate costs for architectures.",
+      "choiceExplanations": [
+        "Correct. Cost estimation tool.",
+        "Incorrect. Audit logs.",
+        "Incorrect. Threat detection.",
+        "Incorrect. Web firewall."
+      ],
+      "references": ["AWS Pricing Calculator"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-055",
+      "prompt": "Which service helps you distribute traffic across multiple targets (high-level load balancing concept)?",
+      "choices": ["Elastic Load Balancing (ELB)", "Amazon S3", "AWS KMS", "Amazon Macie"],
+      "answerIndex": 0,
+      "explanation": "ELB distributes incoming application traffic across multiple targets.",
+      "choiceExplanations": [
+        "Correct. Load balancing service family.",
+        "Incorrect. Storage.",
+        "Incorrect. Key management.",
+        "Incorrect. Data classification."
+      ],
+      "references": ["Elastic Load Balancing"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-056",
+      "prompt": "Which AWS service provides a way to automatically scale EC2 instance counts based on demand?",
+      "choices": ["EC2 Auto Scaling", "AWS Budgets", "AWS Artifact", "Amazon Route 53"],
+      "answerIndex": 0,
+      "explanation": "Auto Scaling adjusts capacity to maintain performance and minimize cost.",
+      "choiceExplanations": [
+        "Correct. Scales EC2 capacity.",
+        "Incorrect. Cost management.",
+        "Incorrect. Compliance docs.",
+        "Incorrect. DNS."
+      ],
+      "references": ["EC2 Auto Scaling"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-057",
+      "prompt": "Which statement best describes 'fault tolerance'?",
+      "choices": [
+        "The ability to continue operating despite component failures",
+        "The ability to avoid backups",
+        "The ability to run only one server",
+        "The ability to prevent all DDoS attacks automatically"
+      ],
+      "answerIndex": 0,
+      "explanation": "Fault tolerance means a system continues functioning during failures.",
+      "choiceExplanations": [
+        "Correct. Continue operation during failures.",
+        "Incorrect. Backups are still needed.",
+        "Incorrect. Single server is less fault tolerant.",
+        "Incorrect. DDoS protection helps but doesn't guarantee prevention."
+      ],
+      "references": ["Resilience concepts"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-058",
+      "prompt": "Which service provides managed object storage with lifecycle policies to transition data to cheaper tiers?",
+      "choices": ["Amazon S3", "Amazon EBS", "Amazon EC2", "AWS IAM"],
+      "answerIndex": 0,
+      "explanation": "S3 lifecycle policies can transition objects between storage classes.",
+      "choiceExplanations": [
+        "Correct. Storage classes + lifecycle transitions.",
+        "Incorrect. Block storage.",
+        "Incorrect. Compute.",
+        "Incorrect. Identity."
+      ],
+      "references": ["S3 Lifecycle"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-059",
+      "prompt": "Which AWS service provides a managed file system for Linux workloads that can be mounted by multiple EC2 instances?",
+      "choices": ["Amazon EFS", "Amazon EBS", "Amazon S3", "Amazon DynamoDB"],
+      "answerIndex": 0,
+      "explanation": "EFS is shared file storage.",
+      "choiceExplanations": [
+        "Correct. Shared file system.",
+        "Incorrect. Block storage.",
+        "Incorrect. Object storage.",
+        "Incorrect. Database."
+      ],
+      "references": ["Amazon EFS"],
+      "image": null
+    },
+    {
+      "id": "aws-clf-c02-2-060",
+      "prompt": "Which AWS service provides a managed service to run virtual machines (instances)?",
+      "choices": ["Amazon EC2", "AWS Lambda", "Amazon SQS", "Amazon CloudFront"],
+      "answerIndex": 0,
+      "explanation": "EC2 provides virtual servers.",
+      "choiceExplanations": [
+        "Correct. VM instances.",
+        "Incorrect. Serverless functions.",
+        "Incorrect. Messaging queue.",
+        "Incorrect. CDN."
+      ],
+      "references": ["Amazon EC2"],
+      "image": null
+    }
+  ]
+}

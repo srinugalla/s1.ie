@@ -1,0 +1,852 @@
+    ,
+    {
+      "id": "t9q41",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "In a GitOps model, what component continuously ensures cluster state matches Git?",
+      "choices": [
+        "kube-scheduler",
+        "A GitOps controller (e.g., Argo CD/Flux)",
+        "kube-proxy",
+        "CoreDNS"
+      ],
+      "answerIndex": 1,
+      "explanation": "GitOps controllers monitor repositories and reconcile desired state."
+    },
+    {
+      "id": "t9q42",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Which metric is most appropriate as a Service Level Indicator (SLI) for availability?",
+      "choices": [
+        "Memory utilization",
+        "Successful request percentage",
+        "Pod restart count",
+        "Container image size"
+      ],
+      "answerIndex": 1,
+      "explanation": "Availability SLIs typically measure successful request rate."
+    },
+    {
+      "id": "t9q43",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which practices increase deployment safety? (Select TWO)",
+      "choices": [
+        "Automated rollbacks",
+        "Health probes",
+        "Using latest image tag",
+        "Editing live containers"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Rollbacks and health checks reduce risk during releases."
+    },
+    {
+      "id": "t9q44",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "What is the main purpose of distributed tracing?",
+      "choices": [
+        "Encrypt traffic",
+        "Track request flow across services",
+        "Provision storage",
+        "Scale Deployments"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tracing tracks requests across microservices."
+    },
+    {
+      "id": "t9q45",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Why should container images avoid using the 'latest' tag in production?",
+      "choices": [
+        "It increases CPU usage",
+        "It can change unexpectedly and break reproducibility",
+        "It disables image caching",
+        "It requires larger registries"
+      ],
+      "answerIndex": 1,
+      "explanation": "The 'latest' tag is mutable and can cause unpredictable deployments."
+    },
+    {
+      "id": "t9q46",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Which tool is commonly used to visualize Prometheus metrics?",
+      "choices": [
+        "Grafana",
+        "kubectl",
+        "kubelet",
+        "etcd"
+      ],
+      "answerIndex": 0,
+      "explanation": "Grafana visualizes time-series metrics."
+    },
+    {
+      "id": "t9q47",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "A blue/green deployment strategy primarily allows you to:",
+      "choices": [
+        "Deploy directly to all users instantly",
+        "Maintain two environments and switch traffic between them",
+        "Disable health checks",
+        "Scale only vertically"
+      ],
+      "answerIndex": 1,
+      "explanation": "Blue/green maintains two environments and switches traffic safely."
+    },
+    {
+      "id": "t9q48",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Continuous delivery ensures that:",
+      "choices": [
+        "Every commit is automatically deployed to production",
+        "Software is always in a releasable state",
+        "Testing is optional",
+        "Deployments are manual only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Continuous delivery keeps software releasable at any time."
+    },
+    {
+      "id": "t9q49",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Shift-left security emphasizes:",
+      "choices": [
+        "Running security checks early in development",
+        "Security only in production",
+        "Disabling RBAC",
+        "Manual firewall edits"
+      ],
+      "answerIndex": 0,
+      "explanation": "Shift-left integrates security early in the development lifecycle."
+    },
+    {
+      "id": "t9q50",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "The 12-factor app methodology recommends configuration via:",
+      "choices": [
+        "Hard-coded values",
+        "Environment variables",
+        "Shared volumes only",
+        "Manual scripts"
+      ],
+      "answerIndex": 1,
+      "explanation": "12-factor apps use environment variables for configuration."
+    },
+
+    {
+      "id": "t9q51",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Which architecture style best supports independent scaling and deployment?",
+      "choices": [
+        "Monolithic",
+        "Microservices",
+        "Shared database only",
+        "Single binary"
+      ],
+      "answerIndex": 1,
+      "explanation": "Microservices allow independent scaling and deployments."
+    },
+    {
+      "id": "t9q52",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "A service mesh primarily provides which capability?",
+      "choices": [
+        "Container image building",
+        "mTLS encryption and traffic management",
+        "Storage provisioning",
+        "Pod scheduling"
+      ],
+      "answerIndex": 1,
+      "explanation": "Service meshes provide traffic control, observability, and mTLS."
+    },
+    {
+      "id": "t9q53",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Resilience in distributed systems refers to:",
+      "choices": [
+        "Preventing all failures",
+        "Recovering gracefully from failures",
+        "Avoiding scaling",
+        "Disabling monitoring"
+      ],
+      "answerIndex": 1,
+      "explanation": "Resilience means tolerating and recovering from failures."
+    },
+    {
+      "id": "t9q54",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "An SLO (Service Level Objective) defines:",
+      "choices": [
+        "A metric value",
+        "A target threshold for a measurable metric",
+        "A deployment script",
+        "A storage class"
+      ],
+      "answerIndex": 1,
+      "explanation": "SLOs define performance targets based on SLIs."
+    },
+    {
+      "id": "t9q55",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which practices reduce tight coupling? (Select TWO)",
+      "choices": [
+        "Event-driven communication",
+        "Versioned APIs",
+        "Shared schema",
+        "Hard-coded endpoints"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Event-driven systems and versioned APIs reduce coupling."
+    },
+    {
+      "id": "t9q56",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Horizontal scaling involves:",
+      "choices": [
+        "Adding more replicas",
+        "Increasing memory of one Pod",
+        "Editing live containers",
+        "Reducing availability zones"
+      ],
+      "answerIndex": 0,
+      "explanation": "Horizontal scaling adds more instances."
+    },
+    {
+      "id": "t9q57",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Zero-trust architecture requires:",
+      "choices": [
+        "Implicit trust within cluster",
+        "Authentication and authorization for each request",
+        "Open firewall rules",
+        "Shared service accounts"
+      ],
+      "answerIndex": 1,
+      "explanation": "Zero-trust enforces strict identity-based access."
+    },
+    {
+      "id": "t9q58",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Which mechanism enforces least privilege access in Kubernetes?",
+      "choices": [
+        "Cluster-admin for all",
+        "Fine-grained RBAC roles",
+        "Default namespace usage",
+        "Disabling authentication"
+      ],
+      "answerIndex": 1,
+      "explanation": "RBAC roles grant minimal necessary permissions."
+    },
+    {
+      "id": "t9q59",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Immutable infrastructure encourages:",
+      "choices": [
+        "Patching live servers",
+        "Replacing instances instead of modifying them",
+        "Manual updates",
+        "Editing containers in production"
+      ],
+      "answerIndex": 1,
+      "explanation": "Immutable infrastructure replaces instances rather than patching them."
+    },
+    {
+      "id": "t9q60",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Which approach improves fault isolation in distributed systems?",
+      "choices": [
+        "Shared global database",
+        "Independent services with well-defined APIs",
+        "Single deployment unit",
+        "Static IP communication"
+      ],
+      "answerIndex": 1,
+      "explanation": "Independent services isolate failures between components."
+    }
+  ]
+}
+    ,
+    {
+      "id": "t10q21",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which resource grants permissions within a single namespace?",
+      "choices": [
+        "ClusterRole",
+        "Role",
+        "ClusterRoleBinding",
+        "PersistentVolume"
+      ],
+      "answerIndex": 1,
+      "explanation": "Role defines permissions scoped to a namespace."
+    },
+    {
+      "id": "t10q22",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which factors influence the Kubernetes scheduler when placing a Pod? (Select TWO)",
+      "choices": [
+        "Resource requests",
+        "Node affinity/anti-affinity",
+        "Container image tag",
+        "Service type"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Scheduler considers resource requests and placement constraints such as affinity."
+    },
+    {
+      "id": "t10q23",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which object is responsible for maintaining the desired number of Pod replicas?",
+      "choices": [
+        "ReplicaSet",
+        "Ingress",
+        "ConfigMap",
+        "Namespace"
+      ],
+      "answerIndex": 0,
+      "explanation": "ReplicaSet ensures a specified number of replicas are running."
+    },
+    {
+      "id": "t10q24",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "If a Pod’s livenessProbe repeatedly fails, what action does Kubernetes take?",
+      "choices": [
+        "Remove it from Service endpoints",
+        "Restart the container",
+        "Delete the namespace",
+        "Scale down the Deployment"
+      ],
+      "answerIndex": 1,
+      "explanation": "A failing liveness probe causes the container to be restarted."
+    },
+    {
+      "id": "t10q25",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which object provides credentials to Pods for accessing the Kubernetes API?",
+      "choices": [
+        "ServiceAccount",
+        "ClusterRole",
+        "SecretStore",
+        "DaemonSet"
+      ],
+      "answerIndex": 0,
+      "explanation": "ServiceAccounts provide identities used for API access."
+    },
+    {
+      "id": "t10q26",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which QoS class is assigned to a Pod when no resource requests or limits are defined?",
+      "choices": [
+        "Guaranteed",
+        "Burstable",
+        "BestEffort",
+        "Premium"
+      ],
+      "answerIndex": 2,
+      "explanation": "BestEffort is assigned when no resource requests or limits are specified."
+    },
+
+    {
+      "id": "t10q27",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which resource performs HTTP host/path-based routing?",
+      "choices": [
+        "Ingress",
+        "Service",
+        "NetworkPolicy",
+        "ReplicaSet"
+      ],
+      "answerIndex": 0,
+      "explanation": "Ingress handles Layer 7 HTTP routing."
+    },
+    {
+      "id": "t10q28",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Which feature distributes Pods evenly across zones to improve availability?",
+      "choices": [
+        "TopologySpreadConstraints",
+        "NodePort",
+        "Secret",
+        "ConfigMap"
+      ],
+      "answerIndex": 0,
+      "explanation": "TopologySpreadConstraints balance Pods across failure domains."
+    },
+    {
+      "id": "t10q29",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "What does a StorageClass primarily define?",
+      "choices": [
+        "RBAC permissions",
+        "Dynamic provisioning parameters",
+        "Service routing rules",
+        "Pod affinity rules"
+      ],
+      "answerIndex": 1,
+      "explanation": "StorageClass defines how volumes are dynamically provisioned."
+    },
+    {
+      "id": "t10q30",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which resources help maintain stable network identities for Pods? (Select TWO)",
+      "choices": [
+        "StatefulSet",
+        "Headless Service",
+        "ReplicaSet",
+        "Job"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "StatefulSets combined with headless Services provide stable DNS identities."
+    },
+    {
+      "id": "t10q31",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which resource protects a minimum number of Pods during voluntary disruptions?",
+      "choices": [
+        "PodDisruptionBudget",
+        "HorizontalPodAutoscaler",
+        "DaemonSet",
+        "ClusterRole"
+      ],
+      "answerIndex": 0,
+      "explanation": "PodDisruptionBudget ensures minimum availability during disruptions."
+    },
+    {
+      "id": "t10q32",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "HorizontalPodAutoscaler depends on which component to collect metrics?",
+      "choices": [
+        "Metrics Server",
+        "CoreDNS",
+        "kube-proxy",
+        "etcd"
+      ],
+      "answerIndex": 0,
+      "explanation": "HPA relies on metrics provided by Metrics Server."
+    },
+    {
+      "id": "t10q33",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which field in a Service determines which Pods receive traffic?",
+      "choices": [
+        "spec.selector",
+        "metadata.name",
+        "spec.type",
+        "status.loadBalancer"
+      ],
+      "answerIndex": 0,
+      "explanation": "spec.selector matches Pods via labels."
+    },
+    {
+      "id": "t10q34",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "If a NetworkPolicy specifies only ingress rules for selected Pods, what is the default egress behavior?",
+      "choices": [
+        "Denied",
+        "Allowed",
+        "Redirected",
+        "Logged only"
+      ],
+      "answerIndex": 1,
+      "explanation": "If only ingress rules are defined, egress remains allowed by default."
+    },
+    {
+      "id": "t10q35",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which Service type maps to an external DNS name?",
+      "choices": [
+        "ExternalName",
+        "ClusterIP",
+        "NodePort",
+        "LoadBalancer"
+      ],
+      "answerIndex": 0,
+      "explanation": "ExternalName maps a Service to an external DNS name."
+    },
+    {
+      "id": "t10q36",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Which object ensures one Pod per node for selected nodes?",
+      "choices": [
+        "DaemonSet",
+        "Deployment",
+        "ReplicaSet",
+        "Job"
+      ],
+      "answerIndex": 0,
+      "explanation": "DaemonSet ensures one Pod runs per node."
+    },
+
+    {
+      "id": "t10q37",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Continuous integration focuses primarily on:",
+      "choices": [
+        "Frequent automated builds and tests",
+        "Manual production changes",
+        "Scaling clusters",
+        "Provisioning volumes"
+      ],
+      "answerIndex": 0,
+      "explanation": "CI emphasizes automated builds and testing on every change."
+    },
+    {
+      "id": "t10q38",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which deployment strategies reduce rollout risk? (Select TWO)",
+      "choices": [
+        "Canary",
+        "Blue/green",
+        "Direct full rollout",
+        "Manual patching"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Canary and blue/green strategies reduce deployment risk."
+    },
+    {
+      "id": "t10q39",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Which metric best reflects user experience latency?",
+      "choices": [
+        "Average CPU",
+        "p95 response time",
+        "Replica count",
+        "Namespace count"
+      ],
+      "answerIndex": 1,
+      "explanation": "Latency percentiles (e.g., p95) reflect real user experience."
+    },
+
+    {
+      "id": "t10q40",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Immutable infrastructure encourages:",
+      "choices": [
+        "Replacing instances instead of modifying them",
+        "Editing live containers",
+        "Manual patching of nodes",
+        "Shared persistent configuration"
+      ],
+      "answerIndex": 0,
+      "explanation": "Immutable infrastructure replaces rather than mutates running systems."
+    }
+    ,
+    {
+      "id": "t10q41",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "In a GitOps workflow, what triggers reconciliation of the cluster state?",
+      "choices": [
+        "Manual kubectl edits",
+        "Changes committed to the Git repository",
+        "Node reboots",
+        "Service restarts"
+      ],
+      "answerIndex": 1,
+      "explanation": "GitOps controllers monitor Git repositories and reconcile cluster state when changes are committed."
+    },
+    {
+      "id": "t10q42",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Which metric is most suitable as an availability Service Level Indicator (SLI)?",
+      "choices": [
+        "Pod restart count",
+        "CPU utilization",
+        "Successful request percentage",
+        "Image size"
+      ],
+      "answerIndex": 2,
+      "explanation": "Availability SLIs typically measure successful request rate."
+    },
+    {
+      "id": "t10q43",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which practices improve release reliability? (Select TWO)",
+      "choices": [
+        "Automated health checks",
+        "Automated rollbacks",
+        "Using mutable image tags",
+        "Manual container edits"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Health checks and automated rollbacks reduce deployment risk."
+    },
+    {
+      "id": "t10q44",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "What is the primary benefit of distributed tracing?",
+      "choices": [
+        "Encrypting traffic",
+        "Tracking request flow across services",
+        "Scaling nodes",
+        "Provisioning storage"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tracing enables visibility into request paths across distributed services."
+    },
+    {
+      "id": "t10q45",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Why should production workloads avoid the 'latest' image tag?",
+      "choices": [
+        "It increases memory usage",
+        "It may change unexpectedly and break reproducibility",
+        "It disables caching",
+        "It increases startup time"
+      ],
+      "answerIndex": 1,
+      "explanation": "The 'latest' tag is mutable and can cause unpredictable deployments."
+    },
+    {
+      "id": "t10q46",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Which tool is commonly used to visualize metrics collected by Prometheus?",
+      "choices": [
+        "Grafana",
+        "kubelet",
+        "kubectl",
+        "etcd"
+      ],
+      "answerIndex": 0,
+      "explanation": "Grafana is widely used to visualize Prometheus metrics."
+    },
+    {
+      "id": "t10q47",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "A canary deployment strategy allows you to:",
+      "choices": [
+        "Deploy to all users immediately",
+        "Gradually route traffic to a new version",
+        "Disable health checks during rollout",
+        "Delete the old version first"
+      ],
+      "answerIndex": 1,
+      "explanation": "Canary deployments shift traffic gradually to reduce risk."
+    },
+    {
+      "id": "t10q48",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Continuous delivery ensures that:",
+      "choices": [
+        "Every commit is deployed automatically to production",
+        "Software is always in a deployable state",
+        "Testing is optional",
+        "Deployments are manual only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Continuous delivery ensures software can be released at any time."
+    },
+    {
+      "id": "t10q49",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Shift-left security primarily means:",
+      "choices": [
+        "Security checks late in production",
+        "Integrating security early in development",
+        "Disabling RBAC for testing",
+        "Manual firewall changes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Shift-left integrates security early in the development lifecycle."
+    },
+    {
+      "id": "t10q50",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "The 12-factor app principle recommends storing configuration in:",
+      "choices": [
+        "Source code",
+        "Environment variables",
+        "Container images",
+        "Persistent volumes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Configuration should be stored in environment variables, not hard-coded."
+    },
+
+    {
+      "id": "t10q51",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Which architecture supports independent scaling and deployment of components?",
+      "choices": [
+        "Monolithic",
+        "Microservices",
+        "Single binary",
+        "Shared database only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Microservices enable independent scaling and deployment."
+    },
+    {
+      "id": "t10q52",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "A service mesh primarily provides:",
+      "choices": [
+        "Image building",
+        "mTLS encryption and traffic control",
+        "Persistent volume provisioning",
+        "Pod scheduling"
+      ],
+      "answerIndex": 1,
+      "explanation": "Service meshes provide traffic management and mTLS."
+    },
+    {
+      "id": "t10q53",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Resilience in distributed systems refers to:",
+      "choices": [
+        "Preventing all failures",
+        "Recovering gracefully from failures",
+        "Disabling autoscaling",
+        "Avoiding monitoring"
+      ],
+      "answerIndex": 1,
+      "explanation": "Resilience means the ability to recover from failures."
+    },
+    {
+      "id": "t10q54",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "An SLO defines:",
+      "choices": [
+        "A measurable indicator",
+        "A target objective for a metric",
+        "A deployment tool",
+        "A namespace rule"
+      ],
+      "answerIndex": 1,
+      "explanation": "SLO defines performance targets based on SLIs."
+    },
+    {
+      "id": "t10q55",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which practices reduce coupling between services? (Select TWO)",
+      "choices": [
+        "Event-driven communication",
+        "Versioned APIs",
+        "Shared schema",
+        "Hard-coded endpoints"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Event-driven and versioned APIs reduce tight coupling."
+    },
+    {
+      "id": "t10q56",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Horizontal scaling means:",
+      "choices": [
+        "Adding more replicas",
+        "Increasing memory of a single instance",
+        "Editing running containers",
+        "Reducing cluster size"
+      ],
+      "answerIndex": 0,
+      "explanation": "Horizontal scaling increases the number of instances."
+    },
+    {
+      "id": "t10q57",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Zero-trust architecture requires:",
+      "choices": [
+        "Implicit internal trust",
+        "Authentication and authorization for every request",
+        "Open network policies",
+        "Shared service accounts"
+      ],
+      "answerIndex": 1,
+      "explanation": "Zero-trust requires strict identity-based verification."
+    },
+    {
+      "id": "t10q58",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Which Kubernetes mechanism enforces least privilege access?",
+      "choices": [
+        "Cluster-admin for all users",
+        "Fine-grained RBAC roles",
+        "Default namespace use",
+        "Disabling authentication"
+      ],
+      "answerIndex": 1,
+      "explanation": "RBAC roles limit permissions to the minimum required."
+    },
+    {
+      "id": "t10q59",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Immutable infrastructure encourages:",
+      "choices": [
+        "Patching servers in place",
+        "Replacing instances instead of modifying them",
+        "Manual hotfixes",
+        "Editing containers live"
+      ],
+      "answerIndex": 1,
+      "explanation": "Immutable infrastructure replaces instances rather than modifying them."
+    },
+    {
+      "id": "t10q60",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Which approach best improves fault isolation in distributed systems?",
+      "choices": [
+        "Shared global state",
+        "Independent services with well-defined APIs",
+        "Single deployment unit",
+        "Static IP communication"
+      ],
+      "answerIndex": 1,
+      "explanation": "Independent services isolate failures and reduce blast radius."
+    }
+  ]
+}

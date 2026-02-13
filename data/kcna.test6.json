@@ -1,0 +1,851 @@
+{
+  "title": "KCNA Test 6",
+  "version": "1.0",
+  "questions": [
+    {
+      "id": "t6q1",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which Kubernetes object maintains a stable set of replica Pods and supports declarative updates?",
+      "choices": [
+        "ReplicaSet",
+        "Deployment",
+        "DaemonSet",
+        "Job"
+      ],
+      "answerIndex": 1,
+      "explanation": "Deployment manages ReplicaSets and enables rolling updates and rollbacks."
+    },
+    {
+      "id": "t6q2",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "If a Pod's memory usage exceeds its configured limit, what occurs?",
+      "choices": [
+        "The container is throttled",
+        "The container is terminated with OOMKilled",
+        "The Pod is rescheduled",
+        "Nothing happens"
+      ],
+      "answerIndex": 1,
+      "explanation": "Exceeding memory limits causes the container to be killed."
+    },
+    {
+      "id": "t6q3",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "What is the function of the kubelet?",
+      "choices": [
+        "Schedules Pods",
+        "Ensures containers are running on assigned nodes",
+        "Stores cluster data",
+        "Implements Service routing"
+      ],
+      "answerIndex": 1,
+      "explanation": "kubelet runs on nodes and manages containers."
+    },
+    {
+      "id": "t6q4",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which are control plane components? (Select TWO)",
+      "choices": [
+        "kube-apiserver",
+        "kube-controller-manager",
+        "kube-proxy",
+        "container runtime"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "kube-apiserver and kube-controller-manager are control-plane components."
+    },
+    {
+      "id": "t6q5",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which probe type determines if a container should receive traffic?",
+      "choices": [
+        "livenessProbe",
+        "readinessProbe",
+        "startupProbe",
+        "healthProbe"
+      ],
+      "answerIndex": 1,
+      "explanation": "readinessProbe controls traffic flow."
+    },
+    {
+      "id": "t6q6",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "A Pod is stuck Pending due to insufficient resources. Which field is most relevant?",
+      "choices": [
+        "limits",
+        "requests",
+        "annotations",
+        "labels"
+      ],
+      "answerIndex": 1,
+      "explanation": "Scheduler considers resource requests."
+    },
+    {
+      "id": "t6q7",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which object runs exactly one Pod per node?",
+      "choices": [
+        "Deployment",
+        "DaemonSet",
+        "ReplicaSet",
+        "StatefulSet"
+      ],
+      "answerIndex": 1,
+      "explanation": "DaemonSet ensures one Pod per node."
+    },
+    {
+      "id": "t6q8",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which QoS class is assigned when no resource requests or limits are defined?",
+      "choices": [
+        "Guaranteed",
+        "Burstable",
+        "BestEffort",
+        "HighPriority"
+      ],
+      "answerIndex": 2,
+      "explanation": "BestEffort applies when no requests/limits are set."
+    },
+    {
+      "id": "t6q9",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "What does etcd store?",
+      "choices": [
+        "Container logs",
+        "Cluster state",
+        "Pod images",
+        "Network rules"
+      ],
+      "answerIndex": 1,
+      "explanation": "etcd stores cluster state."
+    },
+    {
+      "id": "t6q10",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which feature prevents scheduling unless explicitly tolerated?",
+      "choices": [
+        "NodeSelector",
+        "Taints",
+        "Affinity",
+        "TopologySpread"
+      ],
+      "answerIndex": 1,
+      "explanation": "Taints repel Pods unless tolerated."
+    },
+
+    {
+      "id": "t6q11",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "What is a Namespace primarily used for?",
+      "choices": [
+        "Encrypting traffic",
+        "Logical isolation and scoping of resources",
+        "Scheduling Pods",
+        "Managing storage"
+      ],
+      "answerIndex": 1,
+      "explanation": "Namespaces logically isolate resources."
+    },
+    {
+      "id": "t6q12",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which statement about labels is correct?",
+      "choices": [
+        "Labels are used for selecting objects",
+        "Labels store sensitive information",
+        "Labels replace annotations",
+        "Labels define RBAC rules"
+      ],
+      "answerIndex": 0,
+      "explanation": "Labels are used to identify and select objects."
+    },
+    {
+      "id": "t6q13",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which object manages Pods to completion?",
+      "choices": [
+        "Deployment",
+        "Job",
+        "DaemonSet",
+        "Service"
+      ],
+      "answerIndex": 1,
+      "explanation": "Jobs run Pods to completion."
+    },
+    {
+      "id": "t6q14",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which are valid Pod restart policies? (Select TWO)",
+      "choices": [
+        "Always",
+        "OnFailure",
+        "Never",
+        "Restart"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Always and OnFailure are valid restart policies (Never also valid, but only 2 correct here)."
+    },
+    {
+      "id": "t6q15",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "What is a ConfigMap used for?",
+      "choices": [
+        "Sensitive data",
+        "Non-sensitive configuration",
+        "Network rules",
+        "RBAC definitions"
+      ],
+      "answerIndex": 1,
+      "explanation": "ConfigMaps store configuration data."
+    },
+    {
+      "id": "t6q16",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which mechanism enforces API access permissions?",
+      "choices": [
+        "NetworkPolicy",
+        "RBAC",
+        "Ingress",
+        "Service"
+      ],
+      "answerIndex": 1,
+      "explanation": "RBAC defines API access permissions."
+    },
+    {
+      "id": "t6q17",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which command applies a manifest?",
+      "choices": [
+        "kubectl create -f",
+        "kubectl apply -f",
+        "kubectl start -f",
+        "kubectl run -f"
+      ],
+      "answerIndex": 1,
+      "explanation": "kubectl apply -f applies configuration declaratively."
+    },
+    {
+      "id": "t6q18",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "What happens if a node becomes unreachable?",
+      "choices": [
+        "Pods are deleted permanently",
+        "Controller recreates Pods on healthy nodes",
+        "Cluster shuts down",
+        "Services stop working"
+      ],
+      "answerIndex": 1,
+      "explanation": "Controllers recreate Pods to maintain desired state."
+    },
+    {
+      "id": "t6q19",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which field matches Pods to Services?",
+      "choices": [
+        "metadata.name",
+        "spec.selector",
+        "status.endpoint",
+        "spec.clusterIP"
+      ],
+      "answerIndex": 1,
+      "explanation": "spec.selector matches Pods by label."
+    },
+    {
+      "id": "t6q20",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which component watches the API and runs controllers?",
+      "choices": [
+        "kube-controller-manager",
+        "kubelet",
+        "CoreDNS",
+        "kube-proxy"
+      ],
+      "answerIndex": 0,
+      "explanation": "kube-controller-manager runs controllers."
+    }
+    ,
+    {
+      "id": "t6q21",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which object is used to grant permissions within a specific namespace?",
+      "choices": [
+        "ClusterRole",
+        "Role",
+        "Service",
+        "Ingress"
+      ],
+      "answerIndex": 1,
+      "explanation": "A Role grants permissions within a namespace; ClusterRole is cluster-wide."
+    },
+    {
+      "id": "t6q22",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which are characteristics of Pods? (Select TWO)",
+      "choices": [
+        "Smallest deployable unit",
+        "Can span multiple nodes",
+        "Share networking namespace",
+        "Always persistent"
+      ],
+      "answerIndex": [0, 2],
+      "explanation": "Pods are the smallest deployable unit and share networking. They cannot span nodes."
+    },
+    {
+      "id": "t6q23",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which component exposes Kubernetes cluster DNS services?",
+      "choices": [
+        "CoreDNS",
+        "kube-proxy",
+        "etcd",
+        "kubelet"
+      ],
+      "answerIndex": 0,
+      "explanation": "CoreDNS provides DNS resolution inside the cluster."
+    },
+    {
+      "id": "t6q24",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "If imagePullPolicy is set to Always, what happens?",
+      "choices": [
+        "Image is pulled only once",
+        "Image is pulled every time the Pod starts",
+        "Image is cached forever",
+        "ImagePullPolicy is ignored"
+      ],
+      "answerIndex": 1,
+      "explanation": "Always forces pulling the image on each container start."
+    },
+    {
+      "id": "t6q25",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "medium",
+      "prompt": "Which object manages a set of identical Pods and ensures availability?",
+      "choices": [
+        "ReplicaSet",
+        "ConfigMap",
+        "Secret",
+        "PersistentVolume"
+      ],
+      "answerIndex": 0,
+      "explanation": "ReplicaSet ensures a defined number of replicas."
+    },
+    {
+      "id": "t6q26",
+      "topic": "Kubernetes Fundamentals",
+      "difficulty": "hard",
+      "prompt": "Which field ensures Pods are scheduled on nodes with specific labels?",
+      "choices": [
+        "Affinity",
+        "Taints",
+        "NodeSelector",
+        "ServiceAccount"
+      ],
+      "answerIndex": 2,
+      "explanation": "NodeSelector matches Pods to nodes with matching labels."
+    },
+
+    {
+      "id": "t6q27",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "What is the default Service type in Kubernetes?",
+      "choices": [
+        "NodePort",
+        "LoadBalancer",
+        "ClusterIP",
+        "ExternalName"
+      ],
+      "answerIndex": 2,
+      "explanation": "ClusterIP is the default Service type."
+    },
+    {
+      "id": "t6q28",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Which feature allows restricting Pod traffic by namespace and label?",
+      "choices": [
+        "Service",
+        "NetworkPolicy",
+        "Ingress",
+        "RoleBinding"
+      ],
+      "answerIndex": 1,
+      "explanation": "NetworkPolicy controls Pod traffic."
+    },
+    {
+      "id": "t6q29",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "What does a PersistentVolume represent?",
+      "choices": [
+        "A storage request",
+        "An actual provisioned storage resource",
+        "A Pod volume mount",
+        "A namespace storage limit"
+      ],
+      "answerIndex": 1,
+      "explanation": "PersistentVolume is the actual storage resource."
+    },
+    {
+      "id": "t6q30",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which Service types expose applications externally? (Select TWO)",
+      "choices": [
+        "ClusterIP",
+        "NodePort",
+        "LoadBalancer",
+        "Headless"
+      ],
+      "answerIndex": [1, 2],
+      "explanation": "NodePort and LoadBalancer provide external exposure."
+    },
+    {
+      "id": "t6q31",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which resource performs L7 HTTP routing?",
+      "choices": [
+        "Ingress",
+        "Service",
+        "ConfigMap",
+        "StatefulSet"
+      ],
+      "answerIndex": 0,
+      "explanation": "Ingress provides Layer 7 routing."
+    },
+    {
+      "id": "t6q32",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Which component must support NetworkPolicy for it to work?",
+      "choices": [
+        "kubelet",
+        "CNI plugin",
+        "kube-scheduler",
+        "etcd"
+      ],
+      "answerIndex": 1,
+      "explanation": "NetworkPolicy requires CNI support."
+    },
+    {
+      "id": "t6q33",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "What is the purpose of HorizontalPodAutoscaler?",
+      "choices": [
+        "Manage rolling updates",
+        "Scale Pods based on metrics",
+        "Store container images",
+        "Route traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "HPA scales replicas based on metrics like CPU."
+    },
+    {
+      "id": "t6q34",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "What is required for HPA to function correctly?",
+      "choices": [
+        "Metrics Server",
+        "Ingress controller",
+        "ConfigMap",
+        "RBAC disabled"
+      ],
+      "answerIndex": 0,
+      "explanation": "Metrics Server provides metrics to HPA."
+    },
+    {
+      "id": "t6q35",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which object manages stateful applications with stable identities?",
+      "choices": [
+        "Deployment",
+        "StatefulSet",
+        "ReplicaSet",
+        "Job"
+      ],
+      "answerIndex": 1,
+      "explanation": "StatefulSet manages stable network identities."
+    },
+    {
+      "id": "t6q36",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "TopologySpreadConstraints are used to:",
+      "choices": [
+        "Encrypt network traffic",
+        "Distribute Pods across failure domains",
+        "Store configuration",
+        "Scale Deployments"
+      ],
+      "answerIndex": 1,
+      "explanation": "They balance Pods across zones/nodes."
+    },
+    {
+      "id": "t6q37",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which Service type provides DNS mapping to external services?",
+      "choices": [
+        "ClusterIP",
+        "NodePort",
+        "ExternalName",
+        "LoadBalancer"
+      ],
+      "answerIndex": 2,
+      "explanation": "ExternalName maps a Service to external DNS."
+    },
+    {
+      "id": "t6q38",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which are progressive delivery techniques? (Select TWO)",
+      "choices": [
+        "Canary",
+        "Blue/green",
+        "Full redeploy",
+        "Static Pod"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Canary and blue/green reduce deployment risk."
+    },
+    {
+      "id": "t6q39",
+      "topic": "Container Orchestration",
+      "difficulty": "medium",
+      "prompt": "Which resource claims storage for a Pod?",
+      "choices": [
+        "PersistentVolume",
+        "PersistentVolumeClaim",
+        "ConfigMap",
+        "StorageNode"
+      ],
+      "answerIndex": 1,
+      "explanation": "PVC requests storage."
+    },
+    {
+      "id": "t6q40",
+      "topic": "Container Orchestration",
+      "difficulty": "hard",
+      "prompt": "If a NetworkPolicy exists but traffic is still allowed, what is likely?",
+      "choices": [
+        "Policy is ignored due to unsupported CNI",
+        "etcd is misconfigured",
+        "Scheduler is down",
+        "Deployment failed"
+      ],
+      "answerIndex": 0,
+      "explanation": "Without CNI enforcement, policies have no effect."
+    }
+    ,
+    {
+      "id": "t6q41",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Which practice is foundational to GitOps?",
+      "choices": [
+        "Manual cluster configuration",
+        "Using Git as the single source of truth",
+        "Disabling controllers",
+        "Direct etcd edits"
+      ],
+      "answerIndex": 1,
+      "explanation": "GitOps stores desired state in Git and reconciles changes automatically."
+    },
+    {
+      "id": "t6q42",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Which metric most directly indicates user-perceived latency?",
+      "choices": [
+        "CPU utilization",
+        "p95 response time",
+        "Pod restart count",
+        "Node memory usage"
+      ],
+      "answerIndex": 1,
+      "explanation": "Percentile latency (e.g., p95) reflects user experience."
+    },
+    {
+      "id": "t6q43",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which tools are commonly part of an observability stack? (Select TWO)",
+      "choices": [
+        "Prometheus",
+        "Grafana",
+        "kube-scheduler",
+        "ReplicaSet"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Prometheus collects metrics; Grafana visualizes them."
+    },
+    {
+      "id": "t6q44",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Which action improves deployment reproducibility?",
+      "choices": [
+        "Using latest image tag",
+        "Pinning images to immutable digests",
+        "Manual Pod edits",
+        "Disabling readiness probes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Immutable image digests ensure consistent deployments."
+    },
+    {
+      "id": "t6q45",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "A canary deployment primarily:",
+      "choices": [
+        "Deploys to all users immediately",
+        "Routes a small percentage of traffic to a new version",
+        "Deletes previous versions",
+        "Disables monitoring"
+      ],
+      "answerIndex": 1,
+      "explanation": "Canary gradually introduces new versions to reduce risk."
+    },
+    {
+      "id": "t6q46",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Shift-left security refers to:",
+      "choices": [
+        "Running security checks only in production",
+        "Integrating security early in development and CI",
+        "Disabling RBAC",
+        "Manual penetration testing only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Shift-left integrates security earlier in pipelines."
+    },
+    {
+      "id": "t6q47",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Automated rollbacks improve:",
+      "choices": [
+        "Manual troubleshooting",
+        "Deployment reliability",
+        "Storage performance",
+        "Node scheduling"
+      ],
+      "answerIndex": 1,
+      "explanation": "Automated rollbacks reduce downtime during failed deployments."
+    },
+    {
+      "id": "t6q48",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "What is the primary role of a container registry?",
+      "choices": [
+        "Store cluster state",
+        "Store and distribute container images",
+        "Manage RBAC",
+        "Route network traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "Registries store container images."
+    },
+    {
+      "id": "t6q49",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "hard",
+      "prompt": "Distributed tracing helps teams:",
+      "choices": [
+        "Encrypt Secrets",
+        "Trace request paths across services",
+        "Schedule Pods",
+        "Configure storage"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tracing shows end-to-end request flows."
+    },
+    {
+      "id": "t6q50",
+      "topic": "Cloud Native Application Delivery",
+      "difficulty": "medium",
+      "prompt": "Continuous delivery emphasizes:",
+      "choices": [
+        "Manual deployments",
+        "Automated build and deployment pipelines",
+        "Direct production edits",
+        "Disabling health checks"
+      ],
+      "answerIndex": 1,
+      "explanation": "Continuous delivery relies on automation."
+    },
+
+    {
+      "id": "t6q51",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "12-factor app configuration suggests:",
+      "choices": [
+        "Hardcoding credentials",
+        "Environment-based configuration",
+        "Shared file system config",
+        "Manual server edits"
+      ],
+      "answerIndex": 1,
+      "explanation": "12-factor apps store config in environment variables."
+    },
+    {
+      "id": "t6q52",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "A service mesh provides:",
+      "choices": [
+        "Pod scheduling",
+        "Traffic control, mTLS, and observability",
+        "Storage provisioning",
+        "Cluster DNS"
+      ],
+      "answerIndex": 1,
+      "explanation": "Service meshes handle service-to-service traffic management."
+    },
+    {
+      "id": "t6q53",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Resilience in distributed systems means:",
+      "choices": [
+        "Avoiding scaling",
+        "Ability to recover from failures",
+        "Single-node architecture",
+        "Hard-coded service endpoints"
+      ],
+      "answerIndex": 1,
+      "explanation": "Resilience enables systems to withstand and recover from failures."
+    },
+    {
+      "id": "t6q54",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "An SLO defines:",
+      "choices": [
+        "A measurable indicator",
+        "A performance target",
+        "A legal contract",
+        "A network policy"
+      ],
+      "answerIndex": 1,
+      "explanation": "SLO is a target objective for service performance."
+    },
+    {
+      "id": "t6q55",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Multi-select: Which reduce service coupling? (Select TWO)",
+      "choices": [
+        "Event-driven design",
+        "Versioned APIs",
+        "Shared database",
+        "Hard-coded IP addresses"
+      ],
+      "answerIndex": [0, 1],
+      "explanation": "Event-driven systems and versioned APIs reduce tight coupling."
+    },
+    {
+      "id": "t6q56",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Immutable infrastructure means:",
+      "choices": [
+        "Modifying servers in place",
+        "Replacing infrastructure rather than patching",
+        "SSH-based troubleshooting",
+        "Manual updates"
+      ],
+      "answerIndex": 1,
+      "explanation": "Immutable systems replace instances rather than modify them."
+    },
+    {
+      "id": "t6q57",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Zero-trust architecture requires:",
+      "choices": [
+        "Implicit trust",
+        "Explicit identity verification and authorization",
+        "Disabled encryption",
+        "Open firewall rules"
+      ],
+      "answerIndex": 1,
+      "explanation": "Zero-trust requires authentication and authorization for every request."
+    },
+    {
+      "id": "t6q58",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "medium",
+      "prompt": "Horizontal scalability involves:",
+      "choices": [
+        "Adding more instances",
+        "Increasing CPU of one node",
+        "Upgrading container version",
+        "Restarting Pods"
+      ],
+      "answerIndex": 0,
+      "explanation": "Horizontal scaling adds more instances."
+    },
+    {
+      "id": "t6q59",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Which best enforces least privilege in Kubernetes?",
+      "choices": [
+        "Cluster-admin for all",
+        "Fine-grained RBAC roles",
+        "Disabled authentication",
+        "Default ServiceAccounts"
+      ],
+      "answerIndex": 1,
+      "explanation": "Least privilege is achieved via minimal RBAC permissions."
+    },
+    {
+      "id": "t6q60",
+      "topic": "Cloud Native Architecture",
+      "difficulty": "hard",
+      "prompt": "Which design improves fault isolation?",
+      "choices": [
+        "Monolithic architecture",
+        "Independent microservices",
+        "Shared global state",
+        "Single deployment unit"
+      ],
+      "answerIndex": 1,
+      "explanation": "Microservices isolate failures between components."
+    }
+  ]
+}

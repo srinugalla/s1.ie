@@ -1,0 +1,1046 @@
+{
+  "id": "kcna-2",
+  "title": "KCNA Test 2",
+  "questions": [
+    {
+      "id": "kcna-2-001",
+      "prompt": "What is the primary purpose of the Kubernetes API server?",
+      "choices": [
+        "Run containers on worker nodes",
+        "Act as the front-end for the Kubernetes control plane",
+        "Store container images",
+        "Schedule pods to nodes"
+      ],
+      "answerIndex": 1,
+      "explanation": "The API server exposes the Kubernetes API and is the control plane front-end that validates and processes requests.",
+      "choiceExplanations": [
+        "Incorrect. Containers are run by the container runtime under kubelet on nodes.",
+        "Correct. The API server is the control plane entry point and exposes the Kubernetes API.",
+        "Incorrect. Container images live in registries (e.g., Docker Hub, GCR, ECR).",
+        "Incorrect. Scheduling decisions are made by kube-scheduler."
+      ],
+      "references": ["Kubernetes API server"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-002",
+      "prompt": "Which component is responsible for scheduling Pods onto nodes?",
+      "choices": ["kube-proxy", "kubelet", "kube-scheduler", "etcd"],
+      "answerIndex": 2,
+      "explanation": "kube-scheduler selects an appropriate node for each pending Pod based on constraints and scoring.",
+      "choiceExplanations": [
+        "Incorrect. kube-proxy implements Service networking rules on nodes.",
+        "Incorrect. kubelet runs on nodes and starts containers for assigned Pods.",
+        "Correct. kube-scheduler assigns Pods to nodes.",
+        "Incorrect. etcd stores cluster state."
+      ],
+      "references": ["kube-scheduler"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-003",
+      "prompt": "What does the term \"immutable infrastructure\" imply?",
+      "choices": [
+        "Servers are manually patched in production",
+        "Infrastructure components are replaced rather than modified in place",
+        "Containers cannot be restarted",
+        "Nodes never scale"
+      ],
+      "answerIndex": 1,
+      "explanation": "Immutable infrastructure favors replacing instances with a new version rather than patching or modifying them in place.",
+      "choiceExplanations": [
+        "Incorrect. Manual patching is the opposite of immutability.",
+        "Correct. You rebuild and replace to apply changes.",
+        "Incorrect. Containers can be restarted; immutability is about how infrastructure changes are applied.",
+        "Incorrect. Scaling is unrelated to immutability."
+      ],
+      "references": ["Immutable infrastructure"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-004",
+      "prompt": "Which Kubernetes Service type exposes a Service only within the cluster?",
+      "choices": ["LoadBalancer", "NodePort", "ClusterIP", "ExternalName"],
+      "answerIndex": 2,
+      "explanation": "ClusterIP is the default Service type and is reachable only inside the cluster network.",
+      "choiceExplanations": [
+        "Incorrect. LoadBalancer provisions an external load balancer in many clouds.",
+        "Incorrect. NodePort exposes the Service on a port on each node.",
+        "Correct. ClusterIP is internal-only.",
+        "Incorrect. ExternalName maps the Service to an external DNS name."
+      ],
+      "references": ["Kubernetes Service types"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-005",
+      "prompt": "Which object manages rolling updates for stateless workloads?",
+      "choices": ["StatefulSet", "Deployment", "DaemonSet", "Job"],
+      "answerIndex": 1,
+      "explanation": "Deployments manage stateless applications and handle rolling updates/rollbacks via ReplicaSets.",
+      "choiceExplanations": [
+        "Incorrect. StatefulSet is for stable identities and stable storage per replica.",
+        "Correct. Deployment supports rolling updates.",
+        "Incorrect. DaemonSet runs one Pod per node (or per matching node).",
+        "Incorrect. Job is for run-to-completion tasks."
+      ],
+      "references": ["Deployment"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-006",
+      "prompt": "Which Kubernetes setting defines whether containers in a Pod should be restarted when they exit?",
+      "choices": ["ReplicaSet", "restartPolicy", "Horizontal Pod Autoscaler", "Ingress"],
+      "answerIndex": 1,
+      "explanation": "Pod-level restartPolicy (Always/OnFailure/Never) controls container restart behavior.",
+      "choiceExplanations": [
+        "Incorrect. ReplicaSet maintains a desired number of Pod replicas.",
+        "Correct. restartPolicy controls whether containers restart when they exit.",
+        "Incorrect. HPA scales replica count based on metrics.",
+        "Incorrect. Ingress provides HTTP/HTTPS routing to Services."
+      ],
+      "references": ["Pod lifecycle", "restartPolicy"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-007",
+      "prompt": "What is the purpose of a Horizontal Pod Autoscaler (HPA)?",
+      "choices": ["Scale nodes", "Scale Pod replicas", "Adjust Pod resource limits", "Restart unhealthy Pods"],
+      "answerIndex": 1,
+      "explanation": "HPA adjusts the number of Pod replicas based on observed metrics (e.g., CPU, custom metrics).",
+      "choiceExplanations": [
+        "Incorrect. Scaling nodes is typically handled by Cluster Autoscaler.",
+        "Correct. HPA scales the number of replicas.",
+        "Incorrect. Adjusting requests/limits is handled by VPA (Vertical Pod Autoscaler).",
+        "Incorrect. Restarts are handled by kubelet and controllers, not HPA."
+      ],
+      "references": ["Horizontal Pod Autoscaler"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-008",
+      "prompt": "Which object is used to run exactly one Pod per node (for matching nodes)?",
+      "choices": ["Deployment", "ReplicaSet", "DaemonSet", "Job"],
+      "answerIndex": 2,
+      "explanation": "DaemonSet ensures a Pod runs on each node (or each node matching selectors/affinity).",
+      "choiceExplanations": [
+        "Incorrect. Deployment targets a desired replica count, not one-per-node.",
+        "Incorrect. ReplicaSet maintains replica count but does not enforce one-per-node.",
+        "Correct. DaemonSet is designed for node-level agents.",
+        "Incorrect. Job is for batch run-to-completion tasks."
+      ],
+      "references": ["DaemonSet"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-009",
+      "prompt": "What is the purpose of Kubernetes labels?",
+      "choices": ["Encrypt Secrets", "Identify and group objects", "Store logs", "Expose Services externally"],
+      "answerIndex": 1,
+      "explanation": "Labels are key/value metadata used for selection, grouping, and organization (e.g., Service selectors).",
+      "choiceExplanations": [
+        "Incorrect. Labels do not encrypt anything.",
+        "Correct. Labels enable selection/grouping via selectors.",
+        "Incorrect. Logs are handled by logging systems and node storage.",
+        "Incorrect. Exposing Services is done via Service types/Ingress."
+      ],
+      "references": ["Labels and selectors"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-010",
+      "prompt": "What is the primary function of kubelet?",
+      "choices": ["Store cluster state", "Run containers on nodes", "Route traffic", "Authorize API calls"],
+      "answerIndex": 1,
+      "explanation": "kubelet is the node agent that ensures containers described in PodSpecs are running on that node.",
+      "choiceExplanations": [
+        "Incorrect. etcd stores cluster state.",
+        "Correct. kubelet coordinates with the container runtime to run containers.",
+        "Incorrect. kube-proxy handles Service traffic routing on nodes.",
+        "Incorrect. Authorization is handled by the API server’s authorization modules (e.g., RBAC)."
+      ],
+      "references": ["kubelet"],
+      "image": null
+    },
+
+    {
+      "id": "kcna-2-011",
+      "prompt": "Which Kubernetes object provides a stable virtual IP and DNS name for a set of Pods?",
+      "choices": ["Service", "Ingress", "ConfigMap", "Namespace"],
+      "answerIndex": 0,
+      "explanation": "A Service provides stable networking (VIP/DNS) and load-balances traffic to matching Pods.",
+      "choiceExplanations": [
+        "Correct. Services provide stable endpoints and load-balancing to Pods.",
+        "Incorrect. Ingress provides HTTP/HTTPS routing to Services, not directly to Pods in the general model.",
+        "Incorrect. ConfigMaps store configuration, not networking endpoints.",
+        "Incorrect. Namespaces partition resources logically."
+      ],
+      "references": ["Service", "DNS"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-012",
+      "prompt": "Which probe determines whether a Pod should receive traffic from a Service?",
+      "choices": ["Liveness probe", "Readiness probe", "Startup probe", "Node probe"],
+      "answerIndex": 1,
+      "explanation": "Readiness probes gate whether a Pod is considered ready and included in Service endpoints.",
+      "choiceExplanations": [
+        "Incorrect. Liveness determines if the container should be restarted.",
+        "Correct. Readiness determines traffic eligibility.",
+        "Incorrect. Startup is for slow-start containers; it delays liveness/readiness until startup completes.",
+        "Incorrect. There is no standard \"Node probe\" concept for Service endpoints."
+      ],
+      "references": ["Probes"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-013",
+      "prompt": "What does a liveness probe typically cause when it fails repeatedly?",
+      "choices": ["The Pod is removed from Service endpoints", "The container is restarted", "The node is deleted", "The Deployment is scaled down"],
+      "answerIndex": 1,
+      "explanation": "Failed liveness probes signal the container is unhealthy and should be restarted by kubelet.",
+      "choiceExplanations": [
+        "Incorrect. That is primarily readiness probe behavior.",
+        "Correct. kubelet restarts the container when liveness fails (per policy).",
+        "Incorrect. Nodes are not deleted due to liveness probe failures.",
+        "Incorrect. Deployment scaling is not directly triggered by liveness failures."
+      ],
+      "references": ["Liveness probe"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-014",
+      "prompt": "Which component is responsible for storing the persistent state of the cluster?",
+      "choices": ["kube-proxy", "etcd", "kubelet", "CoreDNS"],
+      "answerIndex": 1,
+      "explanation": "etcd is the distributed key-value store used as Kubernetes’ backing store for cluster state.",
+      "choiceExplanations": [
+        "Incorrect. kube-proxy programs networking rules for Services.",
+        "Correct. etcd stores Kubernetes API objects/state.",
+        "Incorrect. kubelet runs workloads on nodes.",
+        "Incorrect. CoreDNS provides DNS for Services/Pods but does not store cluster state."
+      ],
+      "references": ["etcd"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-015",
+      "prompt": "Which statement best describes a Kubernetes controller?",
+      "choices": [
+        "A component that continuously reconciles actual state to desired state",
+        "A feature that encrypts Secrets automatically",
+        "A node process that runs containers",
+        "A CLI tool for applying manifests"
+      ],
+      "answerIndex": 0,
+      "explanation": "Controllers watch resources and reconcile the cluster so that actual state matches desired state.",
+      "choiceExplanations": [
+        "Correct. Controllers implement reconciliation loops.",
+        "Incorrect. Encryption is configured separately; controllers don’t inherently encrypt Secrets.",
+        "Incorrect. That describes kubelet/container runtime.",
+        "Incorrect. kubectl applies manifests but is not a controller."
+      ],
+      "references": ["Controllers", "Reconciliation"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-016",
+      "prompt": "Which Kubernetes concept is used to restrict allowed ingress/egress traffic between Pods?",
+      "choices": ["NetworkPolicy", "ServiceAccount", "StorageClass", "IngressClass"],
+      "answerIndex": 0,
+      "explanation": "NetworkPolicy defines ingress/egress rules based on Pod selectors, namespaces, and ports.",
+      "choiceExplanations": [
+        "Correct. NetworkPolicy controls allowed Pod traffic (requires a supporting CNI).",
+        "Incorrect. ServiceAccounts provide identities for Pods.",
+        "Incorrect. StorageClass defines storage provisioning parameters.",
+        "Incorrect. IngressClass selects which controller implements an Ingress."
+      ],
+      "references": ["NetworkPolicy"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-017",
+      "prompt": "Which of the following is a key benefit of containers over traditional deployments?",
+      "choices": [
+        "They eliminate the need for an operating system",
+        "They provide consistent packaging of app and dependencies",
+        "They require all apps to be stateless",
+        "They automatically encrypt all network traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "Containers package the application and its dependencies to run consistently across environments.",
+      "choiceExplanations": [
+        "Incorrect. Containers still run on an OS kernel (shared with the host).",
+        "Correct. Portability/consistency is a core benefit.",
+        "Incorrect. Containers can run stateful apps too.",
+        "Incorrect. Encryption depends on networking/service mesh configuration."
+      ],
+      "references": ["Containers"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-018",
+      "prompt": "Which is the best reason to use a StatefulSet instead of a Deployment?",
+      "choices": [
+        "You need one Pod per node",
+        "You need stable identities and stable storage per replica",
+        "You need HTTP routing from the internet",
+        "You need to store non-sensitive config"
+      ],
+      "answerIndex": 1,
+      "explanation": "StatefulSets provide stable network identity, ordered updates, and stable volume claims per Pod.",
+      "choiceExplanations": [
+        "Incorrect. That’s a DaemonSet pattern.",
+        "Correct. StatefulSet is for stateful workloads needing stable identity/storage.",
+        "Incorrect. That’s typically Ingress/Service configuration.",
+        "Incorrect. That’s a ConfigMap use case."
+      ],
+      "references": ["StatefulSet"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-019",
+      "prompt": "Which storage access mode allows multiple nodes to mount the same volume read-write at the same time?",
+      "choices": ["ReadWriteOnce", "ReadOnlyMany", "ReadWriteMany", "ReadWriteOncePod"],
+      "answerIndex": 2,
+      "explanation": "ReadWriteMany (RWX) supports simultaneous read-write mounts from multiple nodes (if the backend supports it).",
+      "choiceExplanations": [
+        "Incorrect. RWO is typically a single node read-write mount.",
+        "Incorrect. ROX allows multiple nodes but read-only.",
+        "Correct. RWX is multi-node read-write.",
+        "Incorrect. RWOP restricts to a single Pod."
+      ],
+      "references": ["PersistentVolume access modes"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-020",
+      "prompt": "Which object describes a request for storage by a Pod?",
+      "choices": ["PersistentVolume", "PersistentVolumeClaim", "StorageClass", "ConfigMap"],
+      "answerIndex": 1,
+      "explanation": "A PersistentVolumeClaim (PVC) is a request for storage resources and characteristics.",
+      "choiceExplanations": [
+        "Incorrect. PV is the actual provisioned volume resource.",
+        "Correct. PVC requests storage and binds to a PV.",
+        "Incorrect. StorageClass defines provisioning parameters for PVs.",
+        "Incorrect. ConfigMap stores config data."
+      ],
+      "references": ["PVC", "PV"],
+      "image": null
+    },
+
+    {
+      "id": "kcna-2-021",
+      "prompt": "What is the purpose of a Kubernetes ConfigMap?",
+      "choices": [
+        "Store sensitive credentials",
+        "Store non-sensitive configuration data",
+        "Provide L7 routing to Services",
+        "Assign Pods to nodes"
+      ],
+      "answerIndex": 1,
+      "explanation": "ConfigMaps store non-sensitive configuration that can be consumed by Pods as files or env vars.",
+      "choiceExplanations": [
+        "Incorrect. Sensitive credentials belong in Secrets (or an external secret store).",
+        "Correct. ConfigMaps hold non-sensitive config values.",
+        "Incorrect. L7 routing is Ingress/service mesh territory.",
+        "Incorrect. Scheduling is done by kube-scheduler."
+      ],
+      "references": ["ConfigMap"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-022",
+      "prompt": "What is the purpose of a Kubernetes Secret?",
+      "choices": [
+        "Hold non-sensitive configuration",
+        "Hold sensitive information like passwords/tokens",
+        "Provide cluster-wide DNS",
+        "Enforce Pod-to-Pod network isolation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Secrets are intended to store sensitive data and should be protected via RBAC and (optionally) encryption-at-rest.",
+      "choiceExplanations": [
+        "Incorrect. Non-sensitive config is for ConfigMaps.",
+        "Correct. Secrets store sensitive values and can be mounted or injected.",
+        "Incorrect. DNS is provided by CoreDNS.",
+        "Incorrect. Network isolation is handled by NetworkPolicy (with a supporting CNI)."
+      ],
+      "references": ["Secret"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-023",
+      "prompt": "Which Kubernetes resource is namespace-scoped by default?",
+      "choices": ["Node", "Namespace", "Pod", "PersistentVolume"],
+      "answerIndex": 2,
+      "explanation": "Pods are namespace-scoped resources (most workload objects are).",
+      "choiceExplanations": [
+        "Incorrect. Nodes are cluster-scoped.",
+        "Incorrect. Namespace is cluster-scoped (it defines the scope).",
+        "Correct. Pods are created within a namespace.",
+        "Incorrect. PersistentVolumes are cluster-scoped."
+      ],
+      "references": ["Kubernetes resource scope"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-024",
+      "prompt": "What does a Kubernetes Namespace primarily provide?",
+      "choices": [
+        "A physical partition of nodes",
+        "A logical partition for names and resources",
+        "A storage tier for volumes",
+        "A container runtime implementation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Namespaces logically partition the cluster’s API objects, helping with multi-tenancy and scoping.",
+      "choiceExplanations": [
+        "Incorrect. Namespaces do not physically partition nodes.",
+        "Correct. Namespaces are logical partitions for resources/names.",
+        "Incorrect. Storage tiers are defined by StorageClasses.",
+        "Incorrect. Container runtime is separate (containerd/CRI-O)."
+      ],
+      "references": ["Namespaces"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-025",
+      "prompt": "Which RBAC object defines permissions in a reusable way across namespaces and cluster-scoped resources?",
+      "choices": ["Role", "RoleBinding", "ClusterRole", "ServiceAccount"],
+      "answerIndex": 2,
+      "explanation": "ClusterRole is cluster-scoped and can be bound within namespaces or cluster-wide.",
+      "choiceExplanations": [
+        "Incorrect. Role is namespace-scoped and must be duplicated across namespaces.",
+        "Incorrect. RoleBinding binds a role to subjects; it is not the permission definition.",
+        "Correct. ClusterRole defines permissions cluster-wide and can be reused.",
+        "Incorrect. ServiceAccount is an identity, not a permission definition."
+      ],
+      "references": ["RBAC ClusterRole"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-026",
+      "prompt": "Which RBAC object grants a Role or ClusterRole to a user/service account within a namespace?",
+      "choices": ["ClusterRole", "RoleBinding", "ClusterRoleBinding", "Namespace"],
+      "answerIndex": 1,
+      "explanation": "RoleBinding is namespace-scoped and grants permissions within that namespace.",
+      "choiceExplanations": [
+        "Incorrect. ClusterRole defines permissions but does not grant them by itself.",
+        "Correct. RoleBinding attaches a Role/ClusterRole to subjects within a namespace.",
+        "Incorrect. ClusterRoleBinding grants permissions cluster-wide (not limited to a single namespace).",
+        "Incorrect. Namespace is not an RBAC binding object."
+      ],
+      "references": ["RoleBinding"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-027",
+      "prompt": "Which mechanism prevents Pods from scheduling onto a node unless they explicitly allow it?",
+      "choices": ["Node labels", "Taints and tolerations", "Services", "Ingress"],
+      "answerIndex": 1,
+      "explanation": "Taints repel Pods; Pods must have tolerations to schedule onto tainted nodes.",
+      "choiceExplanations": [
+        "Incorrect. Labels help selection but do not repel by default.",
+        "Correct. Taints repel, tolerations allow.",
+        "Incorrect. Services are for networking.",
+        "Incorrect. Ingress is for HTTP routing."
+      ],
+      "references": ["Taints and tolerations"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-028",
+      "prompt": "Which feature is best used to require that a Pod runs only on nodes with a specific label?",
+      "choices": ["Node affinity", "Pod disruption budget", "Pod security policy", "Ingress"],
+      "answerIndex": 0,
+      "explanation": "Node affinity (or nodeSelector) constrains scheduling to nodes that match labels.",
+      "choiceExplanations": [
+        "Correct. Node affinity can require node label matches.",
+        "Incorrect. PDB controls voluntary disruptions, not scheduling.",
+        "Incorrect. PSP was security admission (deprecated/removed) and not scheduling.",
+        "Incorrect. Ingress is unrelated to node placement."
+      ],
+      "references": ["Node affinity", "Scheduling"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-029",
+      "prompt": "Which statement best describes \"desired state\" in Kubernetes?",
+      "choices": [
+        "The current runtime state after failures",
+        "The configuration declared in the API server that controllers try to make real",
+        "The CPU usage measured by metrics server",
+        "The image stored in a registry"
+      ],
+      "answerIndex": 1,
+      "explanation": "Desired state is what you declare (e.g., in manifests); controllers reconcile to achieve it.",
+      "choiceExplanations": [
+        "Incorrect. That is actual state.",
+        "Correct. Desired state is stored as API objects and reconciled.",
+        "Incorrect. Metrics are observations, not desired state.",
+        "Incorrect. Registry images are artifacts, not desired state."
+      ],
+      "references": ["Desired state", "Reconciliation"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-030",
+      "prompt": "Which component typically provides in-cluster DNS for Services?",
+      "choices": ["CoreDNS", "etcd", "kube-scheduler", "kubelet"],
+      "answerIndex": 0,
+      "explanation": "CoreDNS provides DNS resolution for Services and (optionally) Pods inside the cluster.",
+      "choiceExplanations": [
+        "Correct. CoreDNS is the common DNS add-on for Kubernetes clusters.",
+        "Incorrect. etcd stores state, not DNS resolution.",
+        "Incorrect. kube-scheduler schedules Pods.",
+        "Incorrect. kubelet runs workloads on nodes."
+      ],
+      "references": ["CoreDNS"],
+      "image": null
+    },
+
+    {
+      "id": "kcna-2-031",
+      "prompt": "Which Kubernetes Service type commonly provisions a cloud-provider external load balancer?",
+      "choices": ["ClusterIP", "NodePort", "LoadBalancer", "ExternalName"],
+      "answerIndex": 2,
+      "explanation": "Service type LoadBalancer typically provisions an external LB in managed cloud environments.",
+      "choiceExplanations": [
+        "Incorrect. ClusterIP is internal-only.",
+        "Incorrect. NodePort exposes a port on nodes but doesn’t necessarily create an external LB.",
+        "Correct. LoadBalancer provisions an external load balancer (where supported).",
+        "Incorrect. ExternalName maps to an external DNS name."
+      ],
+      "references": ["Service type LoadBalancer"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-032",
+      "prompt": "What does an Ingress primarily provide?",
+      "choices": [
+        "Pod-to-Pod isolation rules",
+        "HTTP/HTTPS routing from outside the cluster to Services",
+        "A stable ClusterIP for Pods",
+        "A mechanism to provision PVs dynamically"
+      ],
+      "answerIndex": 1,
+      "explanation": "Ingress defines L7 routing rules (host/path) to Services, implemented by an Ingress controller.",
+      "choiceExplanations": [
+        "Incorrect. That’s NetworkPolicy.",
+        "Correct. Ingress routes external HTTP/HTTPS requests to Services.",
+        "Incorrect. ClusterIP is provided by Services, not Ingress.",
+        "Incorrect. PV provisioning is done via StorageClasses and PVCs."
+      ],
+      "references": ["Ingress"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-033",
+      "prompt": "What is a common use case for a DaemonSet?",
+      "choices": [
+        "Blue/green application deployments",
+        "Node-level log collection agent on every node",
+        "Run-to-completion batch processing",
+        "Managing stable identities for stateful databases"
+      ],
+      "answerIndex": 1,
+      "explanation": "DaemonSets are used for per-node agents like log collectors, monitoring agents, and CNI components.",
+      "choiceExplanations": [
+        "Incorrect. Blue/green is typically done with Deployments/Services and traffic shifting.",
+        "Correct. DaemonSet ensures one agent per node.",
+        "Incorrect. Batch processing is a Job/CronJob pattern.",
+        "Incorrect. Stable identities/storage are StatefulSet patterns."
+      ],
+      "references": ["DaemonSet use cases"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-034",
+      "prompt": "Which Kubernetes object is best for a one-time, run-to-completion task?",
+      "choices": ["Deployment", "Job", "DaemonSet", "Service"],
+      "answerIndex": 1,
+      "explanation": "Jobs run Pods to completion and track successful completion counts.",
+      "choiceExplanations": [
+        "Incorrect. Deployments are for long-running services.",
+        "Correct. Job is for run-to-completion workloads.",
+        "Incorrect. DaemonSet is one-per-node long-running agents.",
+        "Incorrect. Service provides networking, not execution control."
+      ],
+      "references": ["Job"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-035",
+      "prompt": "Which Kubernetes object schedules Jobs on a time-based schedule?",
+      "choices": ["CronJob", "ReplicaSet", "StatefulSet", "Ingress"],
+      "answerIndex": 0,
+      "explanation": "CronJob creates Jobs on a schedule defined in cron format.",
+      "choiceExplanations": [
+        "Correct. CronJob is for scheduled Jobs.",
+        "Incorrect. ReplicaSet maintains replica count.",
+        "Incorrect. StatefulSet manages stateful Pods.",
+        "Incorrect. Ingress is for HTTP routing."
+      ],
+      "references": ["CronJob"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-036",
+      "prompt": "What is the main purpose of a PodDisruptionBudget (PDB)?",
+      "choices": [
+        "Prevent Pods from exceeding CPU limits",
+        "Limit voluntary disruptions to maintain availability",
+        "Ensure Pods only run on SSD nodes",
+        "Encrypt traffic between Services"
+      ],
+      "answerIndex": 1,
+      "explanation": "PDBs help keep enough Pods available during voluntary disruptions (e.g., drain, rolling upgrades).",
+      "choiceExplanations": [
+        "Incorrect. CPU limits are enforced via resource limits/cgroups.",
+        "Correct. PDBs limit voluntary disruptions to preserve availability.",
+        "Incorrect. Node placement uses affinity/taints/selectors.",
+        "Incorrect. Encryption requires TLS/service mesh, not PDB."
+      ],
+      "references": ["PodDisruptionBudget"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-037",
+      "prompt": "Which Kubernetes feature spreads Pods across failure domains like zones to reduce correlated failure risk?",
+      "choices": ["Topology spread constraints", "HostPath volumes", "ConfigMaps", "PodSecurityPolicy"],
+      "answerIndex": 0,
+      "explanation": "Topology spread constraints distribute Pods across topology domains to reduce skew and improve resilience.",
+      "choiceExplanations": [
+        "Correct. Spread constraints aim for even distribution across domains (zones/nodes).",
+        "Incorrect. HostPath is node-local storage, unrelated to scheduling distribution.",
+        "Incorrect. ConfigMaps are configuration objects.",
+        "Incorrect. PSP is deprecated/removed and was security-related, not scheduling distribution."
+      ],
+      "references": ["Topology spread constraints"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-038",
+      "prompt": "What does the Cluster Autoscaler primarily do?",
+      "choices": [
+        "Scale the number of Pod replicas",
+        "Scale the number of cluster nodes",
+        "Adjust Pod CPU/memory requests",
+        "Route external HTTP traffic"
+      ],
+      "answerIndex": 1,
+      "explanation": "Cluster Autoscaler adds/removes nodes based on pending Pods and utilization (provider-dependent).",
+      "choiceExplanations": [
+        "Incorrect. That’s HPA.",
+        "Correct. Cluster Autoscaler scales nodes.",
+        "Incorrect. That’s VPA (or manual tuning).",
+        "Incorrect. That’s Ingress/LoadBalancer patterns."
+      ],
+      "references": ["Cluster Autoscaler"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-039",
+      "prompt": "What does the Vertical Pod Autoscaler (VPA) primarily adjust?",
+      "choices": [
+        "Number of nodes",
+        "Number of replicas",
+        "Pod resource requests (and optionally limits via recommendation)",
+        "Service IP addresses"
+      ],
+      "answerIndex": 2,
+      "explanation": "VPA recommends or updates Pod resource requests based on observed usage over time.",
+      "choiceExplanations": [
+        "Incorrect. Node count is Cluster Autoscaler.",
+        "Incorrect. Replica count is HPA.",
+        "Correct. VPA targets requests based on usage.",
+        "Incorrect. Service IPs are not managed by VPA."
+      ],
+      "references": ["Vertical Pod Autoscaler"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-040",
+      "prompt": "Which statement best describes GitOps?",
+      "choices": [
+        "Manually SSH into nodes to apply changes",
+        "Use Git as the source of truth and reconcile systems to match it",
+        "Store container images in Git",
+        "Disable CI/CD pipelines in favor of ad-hoc scripts"
+      ],
+      "answerIndex": 1,
+      "explanation": "GitOps uses Git as the source of truth for desired state and automation reconciles runtime state to match.",
+      "choiceExplanations": [
+        "Incorrect. SSHing into nodes is anti-GitOps and non-declarative.",
+        "Correct. Git is the source of truth; automation reconciles.",
+        "Incorrect. Images should be stored in registries, not Git.",
+        "Incorrect. GitOps generally complements CI/CD rather than replacing it with ad-hoc scripts."
+      ],
+      "references": ["GitOps"],
+      "image": null
+    },
+
+    {
+      "id": "kcna-2-041",
+      "prompt": "What is a key advantage of declarative configuration in Kubernetes?",
+      "choices": [
+        "It requires you to specify exact step-by-step commands",
+        "It enables controllers to continuously reconcile toward the desired state",
+        "It prevents any configuration drift automatically without controllers",
+        "It eliminates the need for monitoring"
+      ],
+      "answerIndex": 1,
+      "explanation": "Declarative config describes desired end state; controllers reconcile actual state to match it.",
+      "choiceExplanations": [
+        "Incorrect. Step-by-step commands are imperative, not declarative.",
+        "Correct. Reconciliation is a core benefit of declarative configuration.",
+        "Incorrect. Drift is addressed by reconciliation; it’s not magically prevented without it.",
+        "Incorrect. Monitoring is still required."
+      ],
+      "references": ["Declarative configuration"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-042",
+      "prompt": "Which of these is NOT a typical responsibility of a container runtime (e.g., containerd)?",
+      "choices": [
+        "Pull and run container images",
+        "Create and manage containers on a node",
+        "Store Kubernetes API objects persistently",
+        "Stop and delete containers"
+      ],
+      "answerIndex": 2,
+      "explanation": "Kubernetes API objects are stored in etcd, not by the container runtime.",
+      "choiceExplanations": [
+        "Incorrect. Runtimes pull images and run containers.",
+        "Incorrect. Runtimes create/manage containers via CRI.",
+        "Correct. Persistent cluster state is stored in etcd.",
+        "Incorrect. Runtimes stop/remove containers as instructed by kubelet."
+      ],
+      "references": ["Container runtime", "CRI"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-043",
+      "prompt": "Which best describes what kube-proxy does?",
+      "choices": [
+        "Schedules Pods to nodes",
+        "Implements Service networking rules on nodes",
+        "Stores Secrets securely",
+        "Runs controllers that reconcile state"
+      ],
+      "answerIndex": 1,
+      "explanation": "kube-proxy implements Service VIP and traffic forwarding rules on nodes (iptables/ipvs/eBPF depending on environment).",
+      "choiceExplanations": [
+        "Incorrect. Scheduling is kube-scheduler.",
+        "Correct. kube-proxy handles Service traffic rules.",
+        "Incorrect. Secrets are stored as API objects (etcd) and managed by Kubernetes, not kube-proxy.",
+        "Incorrect. Controllers run in the control plane, not kube-proxy."
+      ],
+      "references": ["kube-proxy"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-044",
+      "prompt": "Which statement is most accurate about Kubernetes Secrets?",
+      "choices": [
+        "Secrets are always end-to-end encrypted by default",
+        "Secrets are intended for sensitive data and should be protected by RBAC and encryption-at-rest when configured",
+        "Secrets can only be mounted as files and never as environment variables",
+        "Secrets are stored outside the cluster and never in etcd"
+      ],
+      "answerIndex": 1,
+      "explanation": "Secrets are sensitive and should be protected; security depends on RBAC and cluster configuration (like encryption-at-rest).",
+      "choiceExplanations": [
+        "Incorrect. Kubernetes does not guarantee end-to-end encryption by default.",
+        "Correct. This is the practical, accurate statement.",
+        "Incorrect. Secrets can be injected as env vars or mounted as volumes.",
+        "Incorrect. Secrets are stored as API objects (typically in etcd)."
+      ],
+      "references": ["Secrets security"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-045",
+      "prompt": "Which Kubernetes QoS class applies when a Pod sets CPU/memory requests and limits and they are equal for all containers?",
+      "choices": ["BestEffort", "Burstable", "Guaranteed", "Limited"],
+      "answerIndex": 2,
+      "explanation": "Guaranteed QoS applies when requests == limits for CPU/memory on all containers in the Pod.",
+      "choiceExplanations": [
+        "Incorrect. BestEffort is when no requests/limits are set.",
+        "Incorrect. Burstable is when requests are set but not equal to limits.",
+        "Correct. Guaranteed requires requests == limits for CPU/memory.",
+        "Incorrect. \"Limited\" is not a Kubernetes QoS class."
+      ],
+      "references": ["QoS classes"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-046",
+      "prompt": "Which Kubernetes QoS class applies when no CPU/memory requests or limits are set?",
+      "choices": ["BestEffort", "Burstable", "Guaranteed", "Priority"],
+      "answerIndex": 0,
+      "explanation": "BestEffort is used when no requests/limits are defined.",
+      "choiceExplanations": [
+        "Correct. No requests/limits yields BestEffort.",
+        "Incorrect. Burstable requires at least one request.",
+        "Incorrect. Guaranteed requires requests == limits for CPU/memory.",
+        "Incorrect. Priority is separate (PriorityClass), not QoS."
+      ],
+      "references": ["QoS classes"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-047",
+      "prompt": "Which feature helps ensure a Pod is not scheduled unless a node has sufficient resources?",
+      "choices": ["Resource requests", "Service selectors", "ConfigMap keys", "Ingress rules"],
+      "answerIndex": 0,
+      "explanation": "The scheduler uses resource requests to decide placement and reserve capacity.",
+      "choiceExplanations": [
+        "Correct. Requests are used by scheduling decisions.",
+        "Incorrect. Service selectors map traffic to Pods.",
+        "Incorrect. ConfigMap keys are unrelated to scheduling.",
+        "Incorrect. Ingress rules are routing configuration."
+      ],
+      "references": ["Requests vs limits"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-048",
+      "prompt": "Which statement about Kubernetes limits is most accurate?",
+      "choices": [
+        "Limits are used only by the scheduler",
+        "Limits define enforcement caps (e.g., CPU throttling) when set",
+        "Limits automatically scale nodes when exceeded",
+        "Limits only apply to Services"
+      ],
+      "answerIndex": 1,
+      "explanation": "Limits can cap CPU and memory; CPU may be throttled and memory overage can cause OOM kills.",
+      "choiceExplanations": [
+        "Incorrect. Requests are primary scheduler inputs; limits are enforced at runtime.",
+        "Correct. Limits are enforcement caps for runtime behavior.",
+        "Incorrect. Node autoscaling is Cluster Autoscaler, not limits.",
+        "Incorrect. Limits are per-container resources, not Services."
+      ],
+      "references": ["Limits"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-049",
+      "prompt": "What is a common reason to pin production deployments to image digests or version tags instead of \"latest\"?",
+      "choices": [
+        "It reduces network latency",
+        "It makes deployments reproducible and auditable",
+        "It automatically scans for vulnerabilities",
+        "It prevents Pods from restarting"
+      ],
+      "answerIndex": 1,
+      "explanation": "Immutable references (digests/tags) make it clear what is running and enable repeatable rollouts/rollbacks.",
+      "choiceExplanations": [
+        "Incorrect. Image tag choice does not directly reduce latency.",
+        "Correct. Reproducibility and traceability are key reasons.",
+        "Incorrect. Vulnerability scanning is a registry/CI feature.",
+        "Incorrect. Restarts are controlled by kubelet and controllers."
+      ],
+      "references": ["Image tagging best practices"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-050",
+      "prompt": "Which tool is commonly used to apply Kubernetes manifests to the cluster?",
+      "choices": ["kubectl", "kubelet", "etcdctl", "kube-proxy"],
+      "answerIndex": 0,
+      "explanation": "kubectl is the standard CLI used to interact with the Kubernetes API server and apply manifests.",
+      "choiceExplanations": [
+        "Correct. kubectl applies manifests and manages resources via the API.",
+        "Incorrect. kubelet runs on nodes and manages containers.",
+        "Incorrect. etcdctl interacts with etcd directly, not normal application workflows.",
+        "Incorrect. kube-proxy manages node networking rules."
+      ],
+      "references": ["kubectl"],
+      "image": null
+    },
+
+    {
+      "id": "kcna-2-051",
+      "prompt": "Which statement best describes service discovery in Kubernetes?",
+      "choices": [
+        "Pods hardcode the IP address of the backend Pod",
+        "Clients use DNS names (Services) to reach backends whose Pods may change",
+        "Traffic is always routed directly to nodes without Services",
+        "Ingress replaces the need for any Service"
+      ],
+      "answerIndex": 1,
+      "explanation": "Service discovery typically means using Service DNS names so clients don’t track changing Pod IPs.",
+      "choiceExplanations": [
+        "Incorrect. Pod IPs are ephemeral; hardcoding is fragile.",
+        "Correct. Services provide stable names/endpoints for changing Pods.",
+        "Incorrect. Services are the standard abstraction for stable access.",
+        "Incorrect. Ingress typically routes to Services; it doesn’t replace them."
+      ],
+      "references": ["Service discovery", "Kubernetes DNS"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-052",
+      "prompt": "Which of the following is a common observability \"pillar\"?",
+      "choices": ["Metrics", "Billing", "Procurement", "Subnetting"],
+      "answerIndex": 0,
+      "explanation": "Observability commonly includes metrics, logs, and traces.",
+      "choiceExplanations": [
+        "Correct. Metrics are a key pillar of observability.",
+        "Incorrect. Billing is cost management, not observability.",
+        "Incorrect. Procurement is an organizational function.",
+        "Incorrect. Subnetting is networking, not observability."
+      ],
+      "references": ["Observability"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-053",
+      "prompt": "How does Prometheus typically collect metrics?",
+      "choices": ["Push from agents by default", "Scrape HTTP endpoints (pull model)", "Read directly from etcd", "Query container images"],
+      "answerIndex": 1,
+      "explanation": "Prometheus uses a pull model: it scrapes metrics endpoints over HTTP.",
+      "choiceExplanations": [
+        "Incorrect. Prometheus is primarily pull-based; Pushgateway is a special-case component.",
+        "Correct. Scraping HTTP endpoints is Prometheus’ default pattern.",
+        "Incorrect. etcd is not a metrics store for Prometheus collection.",
+        "Incorrect. Images do not provide runtime metrics."
+      ],
+      "references": ["Prometheus"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-054",
+      "prompt": "Which Prometheus component routes alerts to email/Slack/webhooks and supports silencing/grouping?",
+      "choices": ["Alertmanager", "Pushgateway", "node_exporter", "kube-state-metrics"],
+      "answerIndex": 0,
+      "explanation": "Alertmanager handles alert routing, grouping, deduplication, and silencing.",
+      "choiceExplanations": [
+        "Correct. Alertmanager is the alert routing/notification component.",
+        "Incorrect. Pushgateway is for pushing metrics from short-lived jobs.",
+        "Incorrect. node_exporter exports host metrics.",
+        "Incorrect. kube-state-metrics exports Kubernetes object state metrics."
+      ],
+      "references": ["Alertmanager"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-055",
+      "prompt": "Which statement best describes a ServiceAccount?",
+      "choices": [
+        "A mechanism to expose Services externally",
+        "An identity used by Pods to authenticate to the API server",
+        "A system for storing container images",
+        "A node that runs control plane components"
+      ],
+      "answerIndex": 1,
+      "explanation": "ServiceAccounts provide identities for workload Pods and are used with RBAC for API access.",
+      "choiceExplanations": [
+        "Incorrect. External exposure is handled by Service types/Ingress.",
+        "Correct. ServiceAccounts provide Pod identities for API access.",
+        "Incorrect. Images are stored in registries.",
+        "Incorrect. Nodes host workloads/control plane; ServiceAccount is an identity object."
+      ],
+      "references": ["ServiceAccount"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-056",
+      "prompt": "Which statement best describes OpenID Connect (OIDC) in a cloud native context?",
+      "choices": [
+        "A legacy password-based authentication protocol",
+        "An identity layer on OAuth 2.0 for federated authentication",
+        "A Kubernetes network plugin",
+        "A container image registry"
+      ],
+      "answerIndex": 1,
+      "explanation": "OIDC provides federated authentication and standardized identity claims using OAuth 2.0 flows.",
+      "choiceExplanations": [
+        "Incorrect. OIDC is token-based and modern, not legacy password-based.",
+        "Correct. OIDC is an identity layer over OAuth 2.0.",
+        "Incorrect. Networking plugins are CNI implementations.",
+        "Incorrect. Registries store images; OIDC is identity/auth."
+      ],
+      "references": ["OIDC"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-057",
+      "prompt": "Which statement best describes a Kubernetes Pod?",
+      "choices": [
+        "The smallest schedulable unit that can contain one or more containers",
+        "A cluster-scoped object that stores all state",
+        "A networking object that replaces Services",
+        "A storage backend for PVs"
+      ],
+      "answerIndex": 0,
+      "explanation": "A Pod is the smallest deployable/schedulable unit in Kubernetes and can contain one or more containers.",
+      "choiceExplanations": [
+        "Correct. Pods are what the scheduler places on nodes.",
+        "Incorrect. Cluster state is stored in etcd; Pods are workload objects.",
+        "Incorrect. Services provide stable networking for Pods; Pods don’t replace Services.",
+        "Incorrect. Storage backends are separate; Pods can mount volumes."
+      ],
+      "references": ["Pod"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-058",
+      "prompt": "Which component is responsible for implementing the Kubernetes control loop for Deployments?",
+      "choices": ["ReplicaSet controller", "kube-proxy", "CoreDNS", "containerd"],
+      "answerIndex": 0,
+      "explanation": "Deployments create/manage ReplicaSets; ReplicaSet controller ensures the desired number of Pods exist.",
+      "choiceExplanations": [
+        "Correct. ReplicaSet controller maintains desired replica count for Pods.",
+        "Incorrect. kube-proxy is networking.",
+        "Incorrect. CoreDNS is DNS.",
+        "Incorrect. containerd is a container runtime."
+      ],
+      "references": ["Deployment", "ReplicaSet"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-059",
+      "prompt": "What is the purpose of a StorageClass?",
+      "choices": [
+        "Define network policies for a namespace",
+        "Define storage provisioning parameters and tiers for dynamic volumes",
+        "Run a Pod on every node",
+        "Expose a Service externally"
+      ],
+      "answerIndex": 1,
+      "explanation": "StorageClasses define different storage types/tiers and parameters used by dynamic provisioning.",
+      "choiceExplanations": [
+        "Incorrect. NetworkPolicy defines network rules.",
+        "Correct. StorageClass defines how PVs are provisioned and with what parameters.",
+        "Incorrect. DaemonSet runs a Pod on every node.",
+        "Incorrect. Service type LoadBalancer/Ingress expose Services externally."
+      ],
+      "references": ["StorageClass"],
+      "image": null
+    },
+    {
+      "id": "kcna-2-060",
+      "prompt": "Which statement best describes \"scale up\" (vertical scaling) versus \"scale out\" (horizontal scaling)?",
+      "choices": [
+        "Scale up adds more instances; scale out upgrades a single machine",
+        "Scale up upgrades a single machine; scale out adds more instances",
+        "Scale up means using Kubernetes; scale out means using VMs",
+        "Scale up is only for databases; scale out is only for web apps"
+      ],
+      "answerIndex": 1,
+      "explanation": "Scale up increases resources of a single instance; scale out increases capacity by adding more instances.",
+      "choiceExplanations": [
+        "Incorrect. That reverses the definitions.",
+        "Correct. Vertical = bigger machine; horizontal = more machines.",
+        "Incorrect. Scaling concepts apply across platforms.",
+        "Incorrect. Both approaches can apply to many workload types."
+      ],
+      "references": ["Horizontal vs vertical scaling"],
+      "image": null
+    }
+  ]
+}

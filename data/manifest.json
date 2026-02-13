@@ -1,0 +1,43 @@
+{
+  "site": {
+    "name": "s1.ie",
+    "tagline": "Practice exams for cloud & DevOps certifications"
+  },
+  "certifications": [
+    {
+      "id": "kcna",
+      "name": "KCNA",
+      "subtitle": "Kubernetes and Cloud Native Associate",
+      "intro": [
+        "Choose a practice test below.",
+        "Balanced to KCNA domain weightings per test.",
+        "After submission you can review answers with explanations, references, and images when provided."
+      ],
+      "tests": [
+        { "id": "1",  "title": "Test 1 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test1.json" },
+        { "id": "2",  "title": "Test 2 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test2.json" },
+        { "id": "3",  "title": "Test 3 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test3.json" },
+        { "id": "4",  "title": "Test 4 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test4.json" },
+        { "id": "5",  "title": "Test 5 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test5.json" },
+        { "id": "6",  "title": "Test 6 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test6.json" },
+        { "id": "7",  "title": "Test 7 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test7.json" },
+        { "id": "8",  "title": "Test 8 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test8.json" },
+        { "id": "9",  "title": "Test 9 (60 Questions)",  "minutesSuggested": 90, "path": "data/kcna.test9.json" },
+        { "id": "10", "title": "Test 10 (60 Questions)", "minutesSuggested": 90, "path": "data/kcna.test10.json" }
+      ]
+    },
+    {
+      "id": "aws-clf-c02",
+      "name": "AWS Certified Cloud Practitioner",
+      "subtitle": "CLF-C02",
+      "intro": [
+        "Cloud fundamentals, AWS core services, billing/pricing, and basic security concepts."
+      ],
+      "tests": [
+        { "id": "1", "title": "CLF-C02 Test 1 (60 Questions)", "minutesSuggested": 90, "path": "data/aws.clf-c02.test1.json" },
+        { "id": "2", "title": "CLF-C02 Test 2 (60 Questions)", "minutesSuggested": 90, "path": "data/aws.clf-c02.test2.json" },
+        { "id": "3", "title": "CLF-C02 Test 3 (60 Questions)", "minutesSuggested": 90, "path": "data/aws.clf-c02.test3.json" }
+      ]
+    }
+  ]
+}
