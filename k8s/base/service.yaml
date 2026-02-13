@@ -4,9 +4,10 @@ metadata:
   name: s1ie-exams
   namespace: s1ie
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: s1ie-exams
   ports:
     - port: 80
       targetPort: 80
+      nodePort: 30080
