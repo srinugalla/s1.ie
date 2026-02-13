@@ -1,0 +1,11 @@
+.git
+.github
+terraform/.terraform
+terraform/*.tfstate*
+terraform/.terraform.lock.hcl
+.DS_Store
+node_modules
+*.log
+__pycache__
+*.pyc
+screenshots/*.psd

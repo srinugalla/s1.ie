@@ -1,5 +1,5 @@
-/* app.js — FULL drop-in (vanilla JS)
-   - Professional home (Brilliant-inspired hero + ads)
+/* app.js — (vanilla JS)
+   - Professional home (hero + ads)
    - Footer handled in index.html
    - Review: 10 per page
    - Review: accordion (only one open at a time)
