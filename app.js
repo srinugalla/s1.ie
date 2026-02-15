@@ -1,5 +1,7 @@
 /* app.js — (vanilla JS)
-   - Cleaner home (single column, no ads, no sidebar)
+   - Calm home (single column, no ads, no sidebar)
+   - Home: no stats row; single-column cert cards; "Continue" CTA
+   - Adds breadcrumbs (site navigation) on top of pages
    - Footer handled in index.html
    - Review: 10 per page
    - Review: accordion (only one open at a time)
@@ -36,7 +38,6 @@ function fmtMs(ms) {
 }
 
 function route() { return (location.hash || "#/practice").slice(1); }
-
 function isAbsUrl(p) { return /^https?:\/\//i.test(String(p || "")); }
 function stripLeadingSlash(p) { return String(p || "").replace(/^\/+/, ""); }
 function dedupe(arr) {
@@ -44,6 +45,45 @@ function dedupe(arr) {
   return arr.filter(x => x && !seen.has(x) && (seen.add(x), true));
 }
 
+/* ===== Breadcrumbs ===== */
+function renderBreadcrumbs(items) {
+  if (!items || !items.length) return "";
+  const html = items.map((it, idx) => {
+    const isLast = idx === items.length - 1;
+    const label = escapeHtml(it.label || "");
+    if (!isLast && it.href) {
+      return `<a class="crumbLink" href="${escapeHtml(it.href)}">${label}</a>`;
+    }
+    return `<span class="crumbCurrent">${label}</span>`;
+  }).join(`<span class="crumbSep">/</span>`);
+  return `<div class="crumbs" role="navigation" aria-label="Breadcrumb">${html}</div>`;
+}
+
+/** Optional right column: if right is empty, render as a single column */
+function pageShell(left, right, crumbsItems = null) {
+  const hasRight = right && String(right).trim().length > 0;
+  const crumbs = crumbsItems ? renderBreadcrumbs(crumbsItems) : "";
+
+  app.innerHTML = `
+    <div class="grid ${hasRight ? "" : "oneCol"}">
+      <section class="card">
+        ${crumbs ? `<div class="crumbsWrap">${crumbs}</div>` : ""}
+        ${left}
+      </section>
+      ${hasRight ? `<aside class="card">${right}</aside>` : ""}
+    </div>
+  `;
+}
+
+/* ===== "Continue" helper ===== */
+function getLastCertId() {
+  try { return localStorage.getItem("s1_last_cert") || ""; } catch { return ""; }
+}
+function setLastCertId(certId) {
+  try { localStorage.setItem("s1_last_cert", String(certId || "")); } catch {}
+}
+
+/* ===== JSON loading ===== */
 function buildJsonCandidates(path) {
   const pRaw = String(path || "").trim();
   const out = [];
@@ -96,18 +136,6 @@ async function loadJson(path) {
   throw new Error(lastErr ? `${lastErr.message}\n\n${msg}` : msg);
 }
 
-/** Optional right column: if right is empty, render as a single column */
-function pageShell(left, right) {
-  const hasRight = right && String(right).trim().length > 0;
-
-  app.innerHTML = `
-    <div class="grid ${hasRight ? "" : "oneCol"}">
-      <section class="card">${left}</section>
-      ${hasRight ? `<aside class="card">${right}</aside>` : ""}
-    </div>
-  `;
-}
-
 function showFatal(err) {
   console.error(err);
   pageShell(
@@ -124,7 +152,8 @@ function showFatal(err) {
        <div class="muted small" style="word-break:break-all">${escapeHtml(MANIFEST_URL || "")}</div>
        <div class="muted small" style="margin-top:8px">Data base:</div>
        <div class="muted small" style="word-break:break-all">${escapeHtml(String(DATA_BASE_URL || ""))}</div>
-     </div>`
+     </div>`,
+    [{ label: "Practice", href: "#/practice" }, { label: "Error" }]
   );
 }
 
@@ -239,22 +268,12 @@ function renderCertMenu() {
   ).join("");
 }
 
-/* ===== Home stats ===== */
-function computeHomeStats() {
-  const certCount = manifest.certifications.length;
-  const testCount = manifest.certifications.reduce((a, c) => a + (c.tests?.length || 0), 0);
-  const approxQ = manifest.certifications.reduce((a, c) => {
-    return a + (c.tests?.reduce((b, t) => {
-      const m = String(t.title || "").match(/\((\d+)\s*Questions\)/i);
-      return b + (m ? Number(m[1]) : 0);
-    }, 0) || 0);
-  }, 0);
-  return { certCount, testCount, approxQ };
-}
-
-/* ===== Home ===== */
+/* ===== Home (calm) ===== */
 function renderPracticeHome() {
-  const { certCount, testCount, approxQ } = computeHomeStats();
+  const last = getLastCertId();
+  const lastCert = last ? findCert(last) : null;
+  const continueHref = lastCert ? `#/practice/${lastCert.id}` : "";
+  const continueLabel = lastCert ? `Continue: ${lastCert.name}` : "";
 
   const first = manifest.certifications?.[0];
   const primaryHref = first ? `#/practice/${first.id}` : "#/practice";
@@ -265,49 +284,35 @@ function renderPracticeHome() {
       <div class="heroBadge">Local exam-mode practice • no accounts</div>
 
       <h1 class="heroTitle">
-        Practice cloud & DevOps exams — fast, focused, production-ready UI.
+        Practice cloud & DevOps certifications with a calm, exam-first flow.
       </h1>
 
       <div class="heroSub">
-        Timed sessions, bookmarking, and a clean review flow. Built as a DevOps showcase: GitHub Actions → container → Kubernetes.
+        Timers, bookmarking, and fast review — repeat until you’re consistent.
       </div>
 
       <div class="heroCtas">
         <a class="cta primaryCta" href="${escapeHtml(primaryHref)}">Start practicing</a>
         <a class="cta ghostCta" href="#/practice">Browse certifications</a>
-      </div>
-
-      <div class="heroStats">
-        <div class="statCard">
-          <div class="statK">${certCount}</div>
-          <div class="muted small">Certifications</div>
-        </div>
-        <div class="statCard">
-          <div class="statK">${testCount}</div>
-          <div class="muted small">Practice tests</div>
-        </div>
-        <div class="statCard">
-          <div class="statK">${approxQ || "—"}</div>
-          <div class="muted small">Questions (approx.)</div>
-        </div>
+        ${lastCert ? `<a class="cta ghostCta" href="${escapeHtml(continueHref)}">${escapeHtml(continueLabel)}</a>` : ""}
       </div>
 
       <div class="cardMini">
-        <div class="muted small">Workflow</div>
+        <div class="muted small">How it works</div>
         <ul class="heroList">
-          <li>Pick a test → answer in exam mode with timers.</li>
-          <li>Bookmark uncertain questions during the run.</li>
-          <li>Review and repeat until stable.</li>
+          <li>Pick a test and run it in exam mode.</li>
+          <li>Bookmark uncertain questions as you go.</li>
+          <li>Submit, review, and repeat until stable.</li>
         </ul>
       </div>
     </div>
 
     <div class="sectionHd">
       <h2>Certifications</h2>
-      <div class="muted">Pick a track and start a timed practice run.</div>
+      <div class="muted">Choose a track and start a timed run.</div>
     </div>
 
-    <div class="certGrid">
+    <div class="certGrid certGridOne">
       ${manifest.certifications.map(c => {
         const firstTestId = (c.tests && c.tests.length) ? c.tests[0].id : "1";
         return `
@@ -319,63 +324,18 @@ function renderPracticeHome() {
               </div>
               <span class="pill">${(c.tests?.length || 0)} tests</span>
             </div>
+
             <div class="certActions">
-              <a class="cta ghostCta" href="#/practice/${c.id}">View tests</a>
+              <a class="cta ghostCta" href="#/practice/${c.id}">Continue</a>
               <a class="cta primaryCta" href="#/exam/${c.id}/test/${escapeHtml(firstTestId)}">Start first test</a>
             </div>
           </div>
         `;
       }).join("")}
     </div>
-
-    <div class="sectionHd" style="margin-top:18px;">
-      <h2>Built to showcase DevOps</h2>
-      <div class="muted">End-to-end pipeline and deployment pattern, kept intentionally simple.</div>
-    </div>
-
-    <div class="certGrid">
-      <div class="certCard">
-        <div class="certTop">
-          <div>
-            <div class="certName">GitHub Actions</div>
-            <div class="muted">CI pipeline: build, test, publish artifact/image.</div>
-          </div>
-          <span class="pill">CI/CD</span>
-        </div>
-      </div>
-
-      <div class="certCard">
-        <div class="certTop">
-          <div>
-            <div class="certName">Containerized runtime</div>
-            <div class="muted">Static site served cleanly with predictable builds.</div>
-          </div>
-          <span class="pill">Docker</span>
-        </div>
-      </div>
-
-      <div class="certCard">
-        <div class="certTop">
-          <div>
-            <div class="certName">Kubernetes deploy</div>
-            <div class="muted">Deployment + Service, health checks, repeatable rollouts.</div>
-          </div>
-          <span class="pill">K8s</span>
-        </div>
-      </div>
-
-      <div class="certCard">
-        <div class="certTop">
-          <div>
-            <div class="certName">Data-driven tests</div>
-            <div class="muted">Manifest + JSON test packs under data/ for versioned content.</div>
-          </div>
-          <span class="pill">Content</span>
-        </div>
-      </div>
-    </div>
     `,
-    "" // no right sidebar on home
+    "",
+    [{ label: "Practice", href: "#/practice" }]
   );
 }
 
@@ -383,6 +343,8 @@ function renderPracticeHome() {
 function renderCertification(certId) {
   const cert = findCert(certId);
   if (!cert) return render404();
+
+  setLastCertId(certId);
 
   const tests = (cert.tests && cert.tests.length)
     ? cert.tests.map(t => `
@@ -407,13 +369,16 @@ function renderCertification(certId) {
     `<div class="hd"><h3>Quick</h3></div>
      <div class="bd">
        <button class="primary" onclick="location.hash='#/practice'">Back</button>
-     </div>`
+     </div>`,
+    [{ label: "Practice", href: "#/practice" }, { label: cert.name }]
   );
 }
 
 async function startOrResumeSession(certId, testId) {
   const meta = findTestMeta(certId, testId);
   if (!meta) throw new Error("Test not found in manifest");
+
+  setLastCertId(certId);
 
   const raw = await loadJson(meta.path);
   const testData = normalizeTestData(raw);
@@ -767,6 +732,13 @@ function renderExam() {
   const remaining = unansweredCount();
   const submitLabel = remaining > 0 ? `Submit (${remaining} unanswered)` : "Submit";
 
+  const crumbs = [
+    { label: "Practice", href: "#/practice" },
+    { label: cert.name, href: `#/practice/${session.certId}` },
+    { label: session.testMeta.title, href: `#/practice/${session.certId}` },
+    { label: `Question ${session.qIndex + 1} / ${totalQ}` }
+  ];
+
   pageShell(
     `<div class="examTop">
       <div class="examTopLeft">
@@ -808,7 +780,8 @@ function renderExam() {
         }
       </div>
     </div>`,
-    renderJumpPanelExam()
+    renderJumpPanelExam(),
+    crumbs
   );
 
   document.getElementById("choices").addEventListener("click", (e) => {
@@ -904,6 +877,13 @@ function renderReview() {
   const startN = items.length ? (review.page * REVIEW_PAGE_SIZE + 1) : 0;
   const endN = Math.min(items.length, review.page * REVIEW_PAGE_SIZE + REVIEW_PAGE_SIZE);
 
+  const crumbs = [
+    { label: "Practice", href: "#/practice" },
+    { label: cert.name, href: `#/practice/${session.certId}` },
+    { label: session.testMeta.title, href: `#/practice/${session.certId}` },
+    { label: "Results" }
+  ];
+
   pageShell(
     `<div class="hd">
       <h2>Results</h2>
@@ -940,7 +920,8 @@ function renderReview() {
         <button class="danger" onclick="restartExam()">Restart</button>
       </div>
     </div>`,
-    renderReviewSidebar()
+    renderReviewSidebar(),
+    crumbs
   );
 
   attachReviewAccordion();
@@ -955,7 +936,8 @@ function render404() {
   pageShell(
     `<div class="hd"><h2>Not found</h2><span class="pill">404</span></div>
      <div class="bd"><a class="pill" href="#/practice">Go home</a></div>`,
-    `<div class="hd"><h3>Status</h3></div><div class="bd"><div class="muted">No info.</div></div>`
+    `<div class="hd"><h3>Status</h3></div><div class="bd"><div class="muted">No info.</div></div>`,
+    [{ label: "Practice", href: "#/practice" }, { label: "Not found" }]
   );
 }
 
