@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: s1ie-exams
-  namespace: s1ie
 spec:
   replicas: 2
   selector:
@@ -15,25 +14,169 @@ spec:
     spec:
       containers:
         - name: s1ie
-          image: srinugalla/s1ie-exams:local
+          image: ghcr.io/srinugalla/s1.ie:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
             requests:
-              cpu: "100m"
-              memory: "64Mi"
+              cpu: 100m
+              memory: 64Mi
             limits:
-              cpu: "250m"
-              memory: "128Mi"
+              cpu: 250m
+              memory: 128Mi
           readinessProbe:
             httpGet:
               path: /healthz
               port: 80
             initialDelaySeconds: 3
             periodSeconds: 5
+            timeoutSeconds: 2
           livenessProbe:
             httpGet:
               path: /healthz
               port: 80
             initialDelaySeconds: 10
             periodSeconds: 10
+            timeoutSeconds: 2
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub
+        - ${ResourceName} From Stack ${AWS::StackName}
+        - ResourceName: Api
+      StageName: Prod
+      DefinitionBody:
+        openapi: '3.0'
+        info: {}
+        paths:
+          /:
+            get:
+              responses: {}
+      EndpointConfiguration: REGIONAL
+      TracingEnabled: true
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${AWS::StackName}-bucket-${AWS::AccountId}
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+              KMSMasterKeyID: alias/aws/s3
+      PublicAccessBlockConfiguration:
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+  BucketBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref Bucket
+      PolicyDocument:
+        Id: RequireEncryptionInTransit
+        Version: '2012-10-17'
+        Statement:
+          - Principal: '*'
+            Action: '*'
+            Effect: Deny
+            Resource:
+              - !GetAtt Bucket.Arn
+              - !Sub ${Bucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: 'false'
+  Table:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      StreamSpecification:
+        StreamViewType: NEW_AND_OLD_IMAGES
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: !Sub
+        - Stack ${AWS::StackName} Function ${ResourceName}
+        - ResourceName: Function
+      CodeUri: src/Function
+      Handler: index.handler
+      Runtime: nodejs22.x
+      MemorySize: 3008
+      Timeout: 30
+      Tracing: Active
+      Environment:
+        Variables:
+          BUCKET_BUCKET_NAME: !Ref Bucket
+          BUCKET_BUCKET_ARN: !GetAtt Bucket.Arn
+          EXTERNALRDS_PORT: !Ref ExternalRDSPort
+          EXTERNALRDS_HOSTNAME: !Ref ExternalRDSHostname
+          EXTERNALRDS_SECRETARN: !Ref ExternalRDSSecretArn
+          API_API_URL: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${Api.Stage}
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - s3:GetObject
+                - s3:GetObjectAcl
+                - s3:GetObjectLegalHold
+                - s3:GetObjectRetention
+                - s3:GetObjectTorrent
+                - s3:GetObjectVersion
+                - s3:GetObjectVersionAcl
+                - s3:GetObjectVersionForReplication
+                - s3:GetObjectVersionTorrent
+                - s3:ListBucket
+                - s3:ListBucketMultipartUploads
+                - s3:ListBucketVersions
+                - s3:ListMultipartUploadParts
+                - s3:AbortMultipartUpload
+                - s3:DeleteObject
+                - s3:DeleteObjectVersion
+                - s3:PutObject
+                - s3:PutObjectLegalHold
+                - s3:PutObjectRetention
+                - s3:RestoreObject
+              Resource:
+                - !Sub arn:${AWS::Partition}:s3:::${Bucket}
+                - !Sub arn:${AWS::Partition}:s3:::${Bucket}/*
+        - AWSSecretsManagerGetSecretValuePolicy:
+            SecretArn: !Ref ExternalRDSSecretArn
+        - Statement:
+            - Effect: Allow
+              Action:
+                - execute-api:Invoke
+              Resource:
+                - !Sub arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${Api}/${Api.Stage}/*
+      Events:
+        Table:
+          Type: DynamoDB
+          Properties:
+            Stream: !GetAtt Table.StreamArn
+            StartingPosition: TRIM_HORIZON
+            BatchSize: 1
+  FunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    DeletionPolicy: Retain
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${Function}
+Metadata:
+  AWS::Composer::ExternalResources:
+    ExternalRDS:
+      Type: externalRDS
+      Settings:
+        Port: !Ref ExternalRDSPort
+        Hostname: !Ref ExternalRDSHostname
+        SecretArn: !Ref ExternalRDSSecretArn
+Parameters:
+  ExternalRDSPort:
+    Type: Number
+  ExternalRDSHostname:
+    Type: String
+  ExternalRDSSecretArn:
+    Type: String

@@ -1,8 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: s1ie-ingress
-  namespace: s1ie
+  name: s1ie-exams
 spec:
   rules:
     - host: s1ie.local
@@ -12,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: s1ie-service
+                name: s1ie-exams
                 port:
                   number: 80
