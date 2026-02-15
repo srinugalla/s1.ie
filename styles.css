@@ -36,6 +36,13 @@
 
   --radius: 18px;
   --radius2: 14px;
+
+  /* Typography scale */
+  --fs-body: 16px;
+  --lh-body: 1.55;
+  --fs-h2: 19px;
+  --fs-hero: 34px;
+  --fs-hero-sm: 28px;
 }
 
 :root[data-theme="light"]{
@@ -63,8 +70,8 @@ body{
   margin:0;
   color: var(--txt);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-  font-size: 17px;
-  line-height: 1.55;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   background:
     radial-gradient(900px 600px at 15% 10%, rgba(122,160,255,.22), transparent 60%),
     radial-gradient(800px 520px at 85% 0%, rgba(155,122,255,.18), transparent 55%),
@@ -109,10 +116,67 @@ button.warn{
 .muted{ color: var(--muted); }
 .small{ font-size: 13px; color: var(--muted); }
 
+/* ===== Thin top bar ===== */
+.topbar{
+  position: sticky;
+  top:0;
+  z-index: 40;
+  backdrop-filter: blur(12px);
+  background: rgba(8,12,18,.42);
+  border-bottom: 1px solid var(--b);
+}
+:root[data-theme="light"] .topbar{ background: rgba(244,247,255,.70); }
+
+.topbarIn{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 8px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.topbarLeft{
+  font-size: 12px;
+  color: var(--muted);
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.topbarRight{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.toplink{
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(255,255,255,.01);
+}
+:root[data-theme="light"] .toplink{ background: rgba(10,14,20,.02); }
+.toplink:hover{
+  color: var(--txt);
+  border-color: var(--b);
+}
+.statusDot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 1px solid var(--b);
+  background: rgba(51,209,122,.40);
+  display:inline-block;
+  margin-right: 6px;
+}
+
 /* ===== Top header ===== */
 .top{
   position: sticky;
-  top:0;
+  top: 41px; /* sits under topbar */
   z-index: 30;
   backdrop-filter: blur(12px);
   background: rgba(8,12,18,.55);
@@ -255,6 +319,9 @@ button.warn{
   grid-template-columns: 1.25fr .75fr;
   gap:14px;
 }
+.grid.oneCol{
+  grid-template-columns: 1fr;
+}
 @media (max-width: 900px){
   .grid{ grid-template-columns: 1fr; }
 }
@@ -275,7 +342,7 @@ button.warn{
 }
 .hd h2, .hd h3{
   margin:0;
-  font-size: 20px;
+  font-size: var(--fs-h2);
   letter-spacing: .2px;
 }
 .bd{ padding: 16px; }
@@ -325,8 +392,8 @@ button.warn{
   flex-wrap:wrap;
   justify-content:flex-end;
 }
-.qtitle{ font-size: 19px; margin-top: 2px; }
-.prompt{ font-size: 19px; letter-spacing: .1px; }
+.qtitle{ font-size: 18px; margin-top: 2px; }
+.prompt{ font-size: 18px; letter-spacing: .1px; }
 
 .topNavRow{
   display:flex;
@@ -674,7 +741,7 @@ button.warn{
   justify-content:flex-end;
 }
 
-/* ===== Home hero + ads ===== */
+/* ===== Home hero ===== */
 .hero{
   padding: 16px;
   border-bottom: 1px solid var(--b);
@@ -694,14 +761,15 @@ button.warn{
 }
 .heroTitle{
   margin: 10px 0 6px;
-  font-size: 30px;
-  line-height: 1.12;
+  font-size: var(--fs-hero);
+  line-height: 1.10;
   letter-spacing: .2px;
 }
 @media (max-width: 520px){
-  .heroTitle{ font-size: 26px; }
+  .heroTitle{ font-size: var(--fs-hero-sm); }
 }
-.heroSub{ color: var(--muted); max-width: 64ch; }
+.heroSub{ color: var(--muted); max-width: 70ch; }
+
 .heroCtas{
   display:flex;
   gap:10px;
@@ -757,7 +825,7 @@ button.warn{
 .heroList li{ margin: 6px 0; }
 
 .sectionHd{ padding: 14px 16px 6px; }
-.sectionHd h2{ margin:0; font-size: 20px; }
+.sectionHd h2{ margin:0; font-size: var(--fs-h2); }
 
 .certGrid{
   padding: 0 16px 16px;
@@ -786,54 +854,6 @@ button.warn{
   flex-wrap:wrap;
 }
 
-.adGrid{
-  padding: 0 16px 16px;
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap:12px;
-}
-@media (max-width: 900px){ .adGrid{ grid-template-columns: 1fr; } }
-.adCard{
-  display:block;
-  padding: 14px;
-  border-radius: 18px;
-  border: 1px solid var(--b);
-  background: rgba(255,255,255,.02);
-  transition: transform .08s ease, border-color .18s ease, box-shadow .18s ease;
-}
-.adCard:hover{
-  transform: translateY(-1px);
-  border-color: rgba(255,255,255,.16);
-  box-shadow: 0 14px 34px rgba(0,0,0,.18);
-}
-:root[data-theme="light"] .adCard:hover{
-  border-color: rgba(10,14,20,.18);
-  box-shadow: 0 14px 34px rgba(18,28,45,.12);
-}
-.adTop{ display:flex; justify-content:space-between; align-items:center; gap:10px; }
-.adBrand{ font-weight: 800; letter-spacing:.2px; }
-.adTag{
-  font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  border: 1px solid var(--b);
-  color: var(--muted);
-}
-.adTitle{ margin-top: 10px; font-size: 16px; font-weight: 750; }
-.adCopy{ margin-top: 6px; font-size: 13px; }
-.adCta{ margin-top: 10px; font-size: 13px; color: var(--accent); }
-
-/* Right column helper */
-.codeBox{
-  margin-top: 6px;
-  padding: 10px 12px;
-  border-radius: 14px;
-  border: 1px solid var(--b);
-  background: rgba(255,255,255,.02);
-  overflow:auto;
-}
-.divider{ margin: 14px 0; height:1px; background: var(--b); }
-
 /* ===== Footer (index.html) ===== */
 .siteFooter{
   margin-top: 18px;
@@ -846,7 +866,7 @@ button.warn{
   margin: 0 auto;
   padding: 18px;
   display:grid;
-  grid-template-columns: 1.3fr .7fr 1fr;
+  grid-template-columns: 1.3fr .7fr .7fr 1fr;
   gap:14px;
 }
 @media (max-width: 900px){ .footIn{ grid-template-columns: 1fr; } }
@@ -862,48 +882,3 @@ button.warn{
 }
 .footLink:hover{ color: var(--txt); }
 .footBrand{ margin-bottom: 8px; }
-
-/* ===== Brilliant-inspired home bits ===== */
-.roleRow{
-  margin-top: 10px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.roleBtn{
-  padding: 9px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  background: rgba(255,255,255,.02);
-}
-:root[data-theme="light"] .roleBtn{ background: rgba(10,14,20,.03); }
-.roleOn{
-  border-color: var(--accentBd);
-  background: var(--accentBg);
-}
-
-.chipRow{
-  margin-top: 10px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-.chipPill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--b);
-  background: rgba(255,255,255,.02);
-  font-size: 12px;
-  color: var(--muted);
-}
-:root[data-theme="light"] .chipPill{ background: rgba(10,14,20,.02); }
-.chipDot{
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  border: 1px solid var(--b);
-  background: rgba(255,255,255,.06);
-}

@@ -1,5 +1,5 @@
 /* app.js — (vanilla JS)
-   - Professional home (hero + ads)
+   - Cleaner home (single column, no ads, no sidebar)
    - Footer handled in index.html
    - Review: 10 per page
    - Review: accordion (only one open at a time)
@@ -96,11 +96,14 @@ async function loadJson(path) {
   throw new Error(lastErr ? `${lastErr.message}\n\n${msg}` : msg);
 }
 
+/** Optional right column: if right is empty, render as a single column */
 function pageShell(left, right) {
+  const hasRight = right && String(right).trim().length > 0;
+
   app.innerHTML = `
-    <div class="grid">
+    <div class="grid ${hasRight ? "" : "oneCol"}">
       <section class="card">${left}</section>
-      <aside class="card">${right}</aside>
+      ${hasRight ? `<aside class="card">${right}</aside>` : ""}
     </div>
   `;
 }
@@ -249,7 +252,7 @@ function computeHomeStats() {
   return { certCount, testCount, approxQ };
 }
 
-/* ===== Home (Brilliant-inspired) ===== */
+/* ===== Home ===== */
 function renderPracticeHome() {
   const { certCount, testCount, approxQ } = computeHomeStats();
 
@@ -258,109 +261,44 @@ function renderPracticeHome() {
 
   pageShell(
     `
-    <div class="hero heroB">
-      <div class="heroGridB">
-        <div class="heroCopy">
-          <div class="heroBadge">Learn by doing • Exam-mode practice</div>
+    <div class="hero">
+      <div class="heroBadge">Local exam-mode practice • no accounts</div>
 
-          <h1 class="heroTitleB" id="homeTitle">
-            Practice cloud & DevOps exams locally — fast, focused, zero noise.
-          </h1>
+      <h1 class="heroTitle">
+        Practice cloud & DevOps exams — fast, focused, production-ready UI.
+      </h1>
 
-          <div class="heroSubB" id="homeSub">
-            Timed sessions, bookmarking, and a clean review flow. Designed for repetition and accuracy.
-          </div>
+      <div class="heroSub">
+        Timed sessions, bookmarking, and a clean review flow. Built as a DevOps showcase: GitHub Actions → container → Kubernetes.
+      </div>
 
-          <div class="roleRow" role="tablist" aria-label="Audience">
-            <button class="roleBtn roleOn" data-role="learner" type="button">I’m preparing for an exam</button>
-            <button class="roleBtn" data-role="interviewer" type="button">I’m hiring / assessing skills</button>
-          </div>
+      <div class="heroCtas">
+        <a class="cta primaryCta" href="${escapeHtml(primaryHref)}">Start practicing</a>
+        <a class="cta ghostCta" href="#/practice">Browse certifications</a>
+      </div>
 
-          <div class="chipRow" aria-label="Topics">
-            <span class="chipPill"><span class="chipDot"></span> Kubernetes</span>
-            <span class="chipPill"><span class="chipDot"></span> Cloud</span>
-            <span class="chipPill"><span class="chipDot"></span> DevOps</span>
-            <span class="chipPill"><span class="chipDot"></span> Networking</span>
-          </div>
-
-          <div class="heroCtas">
-            <a class="cta primaryCta" href="${escapeHtml(primaryHref)}">Start practicing</a>
-            <a class="cta ghostCta" href="#/practice">Browse certifications</a>
-          </div>
-
-          <div class="heroStats">
-            <div class="statCard">
-              <div class="statK">${certCount}</div>
-              <div class="muted small">Certifications</div>
-            </div>
-            <div class="statCard">
-              <div class="statK">${testCount}</div>
-              <div class="muted small">Practice tests</div>
-            </div>
-            <div class="statCard">
-              <div class="statK">${approxQ || "—"}</div>
-              <div class="muted small">Questions (approx.)</div>
-            </div>
-          </div>
-
-          <div class="cardMini">
-            <div class="muted small">How it works</div>
-            <ul class="heroList">
-              <li>Pick a test → answer in exam mode with timers.</li>
-              <li>Bookmark uncertain questions during the run.</li>
-              <li>Review, filter, and repeat until stable.</li>
-            </ul>
-          </div>
+      <div class="heroStats">
+        <div class="statCard">
+          <div class="statK">${certCount}</div>
+          <div class="muted small">Certifications</div>
         </div>
-
-        <div class="heroArtWrap">
-          <div class="heroArtB" aria-hidden="true">
-            <div class="orb o1"></div>
-            <div class="orb o2"></div>
-            <div class="orb o3"></div>
-
-            <div class="artPanelB">
-              <div class="artTopbarB">
-                <div class="artDotsB">
-                  <span class="artDotB"></span>
-                  <span class="artDotB"></span>
-                  <span class="artDotB"></span>
-                </div>
-                <div class="artTitleB">Exam mode • Live session</div>
-              </div>
-
-              <div class="artBodyB">
-                <div class="artCardB">
-                  <div class="artRowB">
-                    <div class="artK">Timer</div>
-                    <div class="artV">Total 38:12</div>
-                  </div>
-                  <div class="artBarB"><div class="artFillB"></div></div>
-                </div>
-
-                <div class="artCardB">
-                  <div class="artRowB">
-                    <div class="artK">Accuracy</div>
-                    <div class="artV">72%</div>
-                  </div>
-                  <div class="artBarB"><div class="artFillB"></div></div>
-                </div>
-
-                <div class="artCardB">
-                  <div class="artRowB">
-                    <div class="artK">Bookmarks</div>
-                    <div class="artV">8 marked</div>
-                  </div>
-                  <div class="artBarB"><div class="artFillB"></div></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="floatTag t1">⭐ Bookmark & return</div>
-            <div class="floatTag t2">✅ Review explanations</div>
-            <div class="floatTag t3">⏱️ Train speed</div>
-          </div>
+        <div class="statCard">
+          <div class="statK">${testCount}</div>
+          <div class="muted small">Practice tests</div>
         </div>
+        <div class="statCard">
+          <div class="statK">${approxQ || "—"}</div>
+          <div class="muted small">Questions (approx.)</div>
+        </div>
+      </div>
+
+      <div class="cardMini">
+        <div class="muted small">Workflow</div>
+        <ul class="heroList">
+          <li>Pick a test → answer in exam mode with timers.</li>
+          <li>Bookmark uncertain questions during the run.</li>
+          <li>Review and repeat until stable.</li>
+        </ul>
       </div>
     </div>
 
@@ -370,101 +308,75 @@ function renderPracticeHome() {
     </div>
 
     <div class="certGrid">
-      ${manifest.certifications.map(c => `
-        <div class="certCard">
-          <div class="certTop">
-            <div>
-              <div class="certName">${escapeHtml(c.name)}</div>
-              <div class="muted">${escapeHtml(c.subtitle || "")}</div>
+      ${manifest.certifications.map(c => {
+        const firstTestId = (c.tests && c.tests.length) ? c.tests[0].id : "1";
+        return `
+          <div class="certCard">
+            <div class="certTop">
+              <div>
+                <div class="certName">${escapeHtml(c.name)}</div>
+                <div class="muted">${escapeHtml(c.subtitle || "")}</div>
+              </div>
+              <span class="pill">${(c.tests?.length || 0)} tests</span>
             </div>
-            <span class="pill">${(c.tests?.length || 0)} tests</span>
+            <div class="certActions">
+              <a class="cta ghostCta" href="#/practice/${c.id}">View tests</a>
+              <a class="cta primaryCta" href="#/exam/${c.id}/test/${escapeHtml(firstTestId)}">Start first test</a>
+            </div>
           </div>
-          <div class="certActions">
-            <a class="cta ghostCta" href="#/practice/${c.id}">View tests</a>
-            <a class="cta primaryCta" href="#/exam/${c.id}/test/1">Start test 1</a>
-          </div>
-        </div>
-      `).join("")}
+        `;
+      }).join("")}
     </div>
 
-    <div class="sectionHd" style="margin-top:16px;">
-      <h2>Sponsored</h2>
-      <div class="muted">Three slots for adverts — replace with your own later.</div>
+    <div class="sectionHd" style="margin-top:18px;">
+      <h2>Built to showcase DevOps</h2>
+      <div class="muted">End-to-end pipeline and deployment pattern, kept intentionally simple.</div>
     </div>
 
-    <div class="adGrid">
-      <a class="adCard" href="#" onclick="return false">
-        <div class="adTop">
-          <div class="adBrand">Apple</div>
-          <span class="adTag">Productivity</span>
+    <div class="certGrid">
+      <div class="certCard">
+        <div class="certTop">
+          <div>
+            <div class="certName">GitHub Actions</div>
+            <div class="muted">CI pipeline: build, test, publish artifact/image.</div>
+          </div>
+          <span class="pill">CI/CD</span>
         </div>
-        <div class="adTitle">Build a calmer study workflow</div>
-        <div class="adCopy muted">
-          Focus modes, reminders, and a clean workspace — make practice consistent.
-        </div>
-        <div class="adCta">Learn more →</div>
-      </a>
+      </div>
 
-      <a class="adCard" href="#" onclick="return false">
-        <div class="adTop">
-          <div class="adBrand">sgalla.ie</div>
-          <span class="adTag">Hiring</span>
+      <div class="certCard">
+        <div class="certTop">
+          <div>
+            <div class="certName">Containerized runtime</div>
+            <div class="muted">Static site served cleanly with predictable builds.</div>
+          </div>
+          <span class="pill">Docker</span>
         </div>
-        <div class="adTitle">Recruiting: DevOps Engineer</div>
-        <div class="adCopy muted">
-          Join a team shipping cloud-native systems. Kubernetes + CI/CD experience preferred.
-        </div>
-        <div class="adCta">Apply now →</div>
-      </a>
+      </div>
 
-      <a class="adCard" href="#" onclick="return false">
-        <div class="adTop">
-          <div class="adBrand">Fullscale.ie</div>
-          <span class="adTag">Marketplace</span>
+      <div class="certCard">
+        <div class="certTop">
+          <div>
+            <div class="certName">Kubernetes deploy</div>
+            <div class="muted">Deployment + Service, health checks, repeatable rollouts.</div>
+          </div>
+          <span class="pill">K8s</span>
         </div>
-        <div class="adTitle">Ireland’s premium housing marketplace</div>
-        <div class="adCopy muted">
-          High-quality listings, refined search, and trusted local agents — built for serious buyers.
+      </div>
+
+      <div class="certCard">
+        <div class="certTop">
+          <div>
+            <div class="certName">Data-driven tests</div>
+            <div class="muted">Manifest + JSON test packs under data/ for versioned content.</div>
+          </div>
+          <span class="pill">Content</span>
         </div>
-        <div class="adCta">Browse listings →</div>
-      </a>
+      </div>
     </div>
     `,
-    `
-    <div class="hd"><h3>Quick start</h3><span class="pill">Tips</span></div>
-    <div class="bd">
-      <div class="muted small">Run locally:</div>
-      <div class="codeBox"><code>python3 -m http.server 8000</code></div>
-      <div class="muted small" style="margin-top:10px;">Then open:</div>
-      <div class="codeBox"><code>http://localhost:8000</code></div>
-
-      <div class="divider"></div>
-
-      <div class="muted small">Manifest:</div>
-      <div class="muted small" style="word-break:break-all">${escapeHtml(MANIFEST_URL || "")}</div>
-    </div>
-    `
+    "" // no right sidebar on home
   );
-
-  // role toggle
-  const title = document.getElementById("homeTitle");
-  const sub = document.getElementById("homeSub");
-  const roleBtns = Array.from(document.querySelectorAll(".roleBtn"));
-
-  function setRole(role) {
-    roleBtns.forEach(b => b.classList.toggle("roleOn", b.dataset.role === role));
-    if (!title || !sub) return;
-
-    if (role === "interviewer") {
-      title.textContent = "Assess real-world Kubernetes & cloud readiness — quickly and consistently.";
-      sub.textContent = "Use exam-mode sessions to evaluate fundamentals, troubleshooting instincts, and decision-making under time pressure.";
-    } else {
-      title.textContent = "Practice cloud & DevOps exams locally — fast, focused, zero noise.";
-      sub.textContent = "Timed sessions, bookmarking, and a clean review flow. Designed for repetition and accuracy.";
-    }
-  }
-
-  roleBtns.forEach(btn => btn.addEventListener("click", () => setRole(btn.dataset.role || "learner")));
 }
 
 /* ===== Certification page ===== */
@@ -621,7 +533,6 @@ window.setReviewMode = (m) => {
 window.reviewPrevPage = () => { review.page -= 1; review.openGlobalIndex = null; renderReview(); };
 window.reviewNextPage = () => { review.page += 1; review.openGlobalIndex = null; renderReview(); };
 
-/** Prev/Next question inside current review filter */
 window.reviewPrevQ = () => {
   const items = reviewFilteredItems();
   if (!items.length) return;

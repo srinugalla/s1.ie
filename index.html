@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <!-- Thin top bar -->
+  <div class="topbar">
+    <div class="topbarIn">
+      <div class="topbarLeft">
+        <span><span class="statusDot" aria-hidden="true"></span>Live</span>
+        <span>Static • Local-first • No tracking</span>
+      </div>
+      <div class="topbarRight">
+        <a class="toplink" href="#/practice">Docs</a>
+        <a class="toplink" href="https://github.com/srinugalla/s1.ie" target="_blank" rel="noopener">GitHub</a>
+        <a class="toplink" href="https://github.com/srinugalla/s1.ie/actions" target="_blank" rel="noopener">CI Status</a>
+      </div>
+    </div>
+  </div>
+
   <header class="top">
     <div class="topin">
       <a class="brand" href="#/practice" aria-label="s1.ie home">
@@ -58,15 +73,27 @@
       </div>
 
       <div>
+        <div class="footHd">Links</div>
+        <a class="footLink" href="https://www.sgalla.ie" target="_blank" rel="noopener">Portfolio: sgalla.ie</a>
+        <a class="footLink" href="https://github.com/srinugalla/s1.ie" target="_blank" rel="noopener">Source on GitHub</a>
+      </div>
+
+      <div>
         <div class="footHd">Tips</div>
         <div class="muted small">
-          Use bookmarks to mark uncertain questions, then filter in review.
-          Aim for accuracy first, then speed.
+          Bookmark uncertain questions, then filter in review. Aim for accuracy first, then speed.
         </div>
       </div>
     </div>
+
+    <div class="muted small" style="max-width:1140px;margin:14px auto 0;padding:0 18px;">
+      © <span id="y"></span> s1.ie. All trademarks and brand names are the property of their respective owners.
+    </div>
   </footer>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
